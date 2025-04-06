@@ -27,8 +27,8 @@ Set up the backend (Django + PostgreSQL):
 Inside the root project folder (affitnity-react/), enter:
 
 > py -m venv venv
-> venv/Scripts/activate # on windows, or
-> source venv/bin/activate # on Linux/macOS
+> venv/Scripts/activate <!-- on windows, or -->
+> source venv/bin/activate <!-- on Linux/macOS -->
 
 Go inside the (backend/) folder, then install all Django dependencies:
 
@@ -64,15 +64,15 @@ Set Up the Frontend (React + Vite):
 Run the Vite development server:
 Inside (frontend/), enter:
 
-> npm run dev # run Vite server
+> npm run dev <!-- run Vite server -->
 
 Run Backend Server (Django):
 Open a new terminal and go to (backend/) directory:
 Inside (affitnity-react/), enter:
 
-> venv/Scripts/activate # activate venv inside the affitnity-react/ directory
-> cd backend # go to backend
-> py manage.py runserver # run Django server
+> venv/Scripts/activate <!-- activate venv inside the affitnity-react/ directory -->
+> cd backend <!-- go to backend -->
+> py manage.py runserver <!-- run Django server -->
 
 =====================
 
