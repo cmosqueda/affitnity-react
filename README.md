@@ -3,6 +3,13 @@
 This is a joint collaborative project for our courses App Dev and Emerging Tech and Integrative Programming Tech. This app is a web prototype for a fitness app.
 
 =====================
+Stacks used:
+
+Frontend: React JS + Tailwindcss + Shadcn
+Backend: Django + Axios
+Database: PostgreSQL
+
+=====================
 
 How to use this project by forking:
 
@@ -27,6 +34,18 @@ Go inside the (backend/) folder, then install all Django dependencies:
 
 > cd backend
 > pip install -r requirements.txt
+
+Make sure that postgresql has been properly installed and configured in your device.
+Install it first if it's not yet installed.
+
+Open new window of the initial_data.json located inside the (backend/) folder.
+Make sure that the initial_data.json is encoded in UTF-8 and valid JSON format.
+In VSCode, you can change its UTF structure at the bottommost menu panel UTF-\*\* and change it into UTF-8.
+
+Then, load the initial_data.json found inside the (backend/) folder.
+This loads the postgresql schema of this system's database for the Django model to migrate.
+
+> py manage.py loaddata initial_data.json
 
 Run migrations inside the same folder (backend/):
 
@@ -64,6 +83,7 @@ affitnity-react/
 │ ├── core/
 │ ├── users/
 │ ├── manage.py
+│ ├── initial_data.json
 │ └── requirements.txt  
 ├── frontend/
 │ ├── node_modules/
