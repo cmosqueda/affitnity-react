@@ -24,5 +24,6 @@ urlpatterns = [
     # users
     path('users/', include('users.urls')),
 
-    # 
+    # targets
+    path('targets/', include('targets.urls')),
 ]

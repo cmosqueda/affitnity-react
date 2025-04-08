@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // import all page screens
-import Home from "./pages/Home";
-import Login from "./auth/Login";
-import Register from "./auth/Register";
+
+import Home from "./pages-screens/Home";
+import Login from "./auth-screens/Login";
+import Register from "./auth-screens/Register";
 
 export default function PageRoutes() {
   return (
