@@ -6,16 +6,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 // react modules
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+// import { useState } from "react";
 
 // axios modules
-import axios from "axios";
+// import axios from "axios";
 
 // shadcn modules
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import { loginApi } from "@/api/auth";
+// import { AsyncLocalStorage } from "async_hooks";
 
 // zod schema
 const formSchema = z.object({
@@ -31,7 +33,7 @@ function LoginForm() {
   // define use navigate hook
   const navigate = useNavigate();
   // define server error use state hook
-  const [serverError, setServerError] = useState<string | null>(null);
+  // const [serverError, setServerError] = useState<string | null>(null);
 
   // define form
   const form = useForm<z.infer<typeof formSchema>>({
@@ -46,14 +48,16 @@ function LoginForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     // do something
     try {
-      setServerError(null);
-      console.log("Login success", values);
-
+      // setServerError(null);
+      // console.log("Login success", values);
+      await loginApi("/users/login/", values);
+      console.log("sumakses");
       // navigate to home
       navigate("/");
     } catch (error: any) {
-      setServerError("Something went wrong. Please try again.");
-      console.error("Login error:", error);
+      // setServerError("Something went wrong. Please try again.");
+      console.log("hindi sumakses");
+      console.error(error.message);
     }
   }
 
