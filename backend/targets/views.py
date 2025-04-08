@@ -8,6 +8,7 @@ from users.models import Profile
 
 # Create your views here.
 
+# using serializer
 class TargetView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 

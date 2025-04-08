@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages-screens/Home";
 import Login from "./auth-screens/Login";
 import Register from "./auth-screens/Register";
+import TestAxios from "./test-screens/TestAxios";
 
 export default function PageRoutes() {
   return (
@@ -14,6 +15,9 @@ export default function PageRoutes() {
           <Route path="/" element={<Home></Home>}></Route>
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/register" element={<Register></Register>}></Route>
+
+          {/* test routes */}
+          <Route path="/test-post" element={<TestAxios></TestAxios>}></Route>
         </Routes>
       </BrowserRouter>
     </>

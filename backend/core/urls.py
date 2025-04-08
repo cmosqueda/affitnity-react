@@ -21,9 +21,9 @@ urlpatterns = [
     # admin
     path('admin/', admin.site.urls),
     
-    # users
+    # users directory
     path('users/', include('users.urls')),
 
-    # targets
+    # targets directory
     path('targets/', include('targets.urls')),
 ]

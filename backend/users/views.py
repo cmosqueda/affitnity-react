@@ -9,19 +9,16 @@ from .models import Profile
 # from .serializers import UserSerializer, ProfileSerializer
 
 # Create your views here.
-# user view
-# class UserViewSet(ModelViewSet):
-#     queryset = User.objects.all()
-#     serializer_class = UserSerializer()
 
-
-
+# not using serializer
 
 # profile view
 
+# test get request
 def test_get_request(request):
     return HttpResponse('<h1>Hello po, test lang i2.</h1>')
 
+# test post request
 @csrf_exempt
 def test_post_request(request):
     if request.method == 'POST':
