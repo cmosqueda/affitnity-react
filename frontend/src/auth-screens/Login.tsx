@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import { loginApi } from "@/api/auth";
+import { authApi } from "@/api/auth";
 // import { AsyncLocalStorage } from "async_hooks";
 
 // zod schema
@@ -50,14 +50,14 @@ function LoginForm() {
     try {
       // setServerError(null);
       // console.log("Login success", values);
-      await loginApi("/users/login/", values);
-      console.log("sumakses");
+      await authApi("/users/login/", values);
+      console.log("sumakses", values);
+
       // navigate to home
       navigate("/");
     } catch (error: any) {
       // setServerError("Something went wrong. Please try again.");
-      console.log("hindi sumakses");
-      console.error(error.message);
+      console.error("hindi sumakses:", error.message);
     }
   }
 

@@ -7,10 +7,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 // react modules
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+// import { useState } from "react";
 
 // axios modules
-import axios from "axios";
+// import axios from "axios";
 
 // shadcn modules
 import { Button } from "@/components/ui/button";
@@ -18,17 +18,19 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 
+import { authApi } from "@/api/auth";
+
 // zod schema
 const formSchema = z.object({
-  first_name: z.string().min(1, { message: "First name is required." }),
-  last_name: z.string().min(1, { message: "Last name is required." }),
-  email: z.string().email({ message: "Invalid email address." }),
   username: z
     .string()
     .min(1, { message: "Username is required." })
     .max(50, { message: "Must not exceed beyond 50 characters." }),
+  first_name: z.string().min(1, { message: "First name is required." }),
+  last_name: z.string().min(1, { message: "Last name is required." }),
+  email: z.string().email({ message: "Invalid email address." }),
   password: z.string().min(1, { message: "Password is required." }),
-  confirm_password: z.string().min(1, { message: "Must confirm password." }),
+  // confirm_password: z.string().min(1, { message: "Must confirm password." }),
 });
 
 // login form component
@@ -37,18 +39,18 @@ function RegisterForm() {
   const navigate = useNavigate();
 
   // define server error use state hook
-  const [serverError, setServerError] = useState<string | null>(null);
+  // const [serverError, setServerError] = useState<string | null>(null);
 
   // define form
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      username: "",
       first_name: "",
       last_name: "",
       email: "",
-      username: "",
       password: "",
-      confirm_password: "",
+      // confirm_password: "",
     },
   });
 
@@ -56,14 +58,15 @@ function RegisterForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     // do something
     try {
-      setServerError(null);
-      console.log("Registration success!", values);
+      // setServerError(null);
+      await authApi("/users/register/", values);
+      console.log("sumakses", values);
 
       // go to home page
       navigate("/");
     } catch (error: any) {
-      setServerError("Something went wrong. Please try again.");
-      console.error("Registration error:", error);
+      // setServerError("Something went wrong. Please try again.");
+      console.error("hindi sumakses:", error);
     }
   }
 
@@ -72,7 +75,13 @@ function RegisterForm() {
     <>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-          {/* names */}
+          {/* register form structure
+          -> first name | last name
+          -> username | email
+          -> password
+          */}
+
+          {/* first name and last name */}
           <div className="flex flex-row space-x-3">
             {/* first name field*/}
             <FormField
@@ -107,23 +116,8 @@ function RegisterForm() {
             />
           </div>
 
+          {/* email and username */}
           <div className="flex flex-row space-x-3">
-            {/* email field*/}
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Email" {...field} />
-                  </FormControl>
-                  {/* <FormDescription>Enter your username.</FormDescription> */}
-                  <FormMessage></FormMessage>
-                </FormItem>
-              )}
-            />
-
             {/* username field*/}
             <FormField
               control={form.control}
@@ -133,6 +127,22 @@ function RegisterForm() {
                   <FormLabel>Username</FormLabel>
                   <FormControl>
                     <Input placeholder="Username" {...field} />
+                  </FormControl>
+                  {/* <FormDescription>Enter your username.</FormDescription> */}
+                  <FormMessage></FormMessage>
+                </FormItem>
+              )}
+            />
+
+            {/* email field*/}
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Email" {...field} />
                   </FormControl>
                   {/* <FormDescription>Enter your username.</FormDescription> */}
                   <FormMessage></FormMessage>
@@ -158,20 +168,7 @@ function RegisterForm() {
           />
 
           {/* confirm pass field*/}
-          <FormField
-            control={form.control}
-            name="confirm_password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Confirm Password</FormLabel>
-                <FormControl>
-                  <Input type="password" placeholder="Confirm Password" {...field} />
-                </FormControl>
-                {/* <FormDescription>Confirm your password.</FormDescription> */}
-                <FormMessage></FormMessage>
-              </FormItem>
-            )}
-          />
+          {/* ommitted */}
 
           {/* register button */}
           <Button type="submit" className="w-full">

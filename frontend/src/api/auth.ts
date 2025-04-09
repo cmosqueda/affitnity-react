@@ -1,28 +1,15 @@
 import axios from "axios";
 
-// set auth api
+// set auth axios instance
 const AUTH_AXIOS = axios.create({
   baseURL: "http://localhost:8000",
 });
 
+// auth api -> login and register
 // default url login -> /users/login/
-
-// login API
-const loginApi = async (url: string = "/users/login/", data: { [key: string]: any }) => {
-  try {
-    const res = await AUTH_AXIOS.post(url, data);
-    console.log(res.data);
-    return res;
-  } catch (err: any) {
-    console.error(err.message);
-    throw err;
-  }
-};
-
 // default url register -> /users/register/
 
-// register API
-const registerApi = async (url: string = "/users/register/", data: { [key: string]: any }) => {
+const authApi = async (url: string, data: { [key: string]: any }) => {
   try {
     const res = await AUTH_AXIOS.post(url, data);
     console.log(res.data);
@@ -33,4 +20,4 @@ const registerApi = async (url: string = "/users/register/", data: { [key: strin
   }
 };
 
-export { loginApi, registerApi };
+export { authApi };

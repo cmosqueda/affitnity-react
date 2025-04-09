@@ -26,4 +26,7 @@ urlpatterns = [
 
     # targets directory
     path('targets/', include('targets.urls')),
+
+    # plans directory
+    path('plans/', include('plans.urls'))
 ]
