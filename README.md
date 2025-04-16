@@ -5,8 +5,8 @@ This is a joint collaborative project for our courses App Dev and Emerging Tech 
 =====================
 Stacks used:
 
-Frontend: React JS + Tailwindcss + Shadcn
-Backend: Django + Axios
+Frontend: React JS + Tailwindcss + Shadcn + Axios
+Backend: Django
 Database: PostgreSQL
 
 =====================
@@ -38,14 +38,11 @@ Go inside the (backend/) folder, then install all Django dependencies:
 Make sure that postgresql has been properly installed and configured in your device.
 Install it first if it's not yet installed.
 
-Open new window of the initial_data.json located inside the (backend/) folder.
-Make sure that the initial_data.json is encoded in UTF-8 and valid JSON format.
-In VSCode, you can change its UTF structure at the bottommost menu panel UTF-\*\* and change it into UTF-8.
+Contact me for the postgresql database schema.
 
-Then, load the initial_data.json found inside the (backend/) folder.
-This loads the postgresql schema of this system's database for the Django model to migrate.
+After getting the schema, make migrations to apply it in Django backend.
 
-> py manage.py loaddata initial_data.json
+> py manage.py makemigrations
 
 Run migrations inside the same folder (backend/):
 
