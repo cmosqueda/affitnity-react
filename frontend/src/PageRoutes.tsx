@@ -6,6 +6,7 @@ import Home from "./pages-screens/Home";
 import Login from "./auth-screens/Login";
 import Register from "./auth-screens/Register";
 import TestAxios from "./test-screens/TestAxios";
+import TestGetExercises from "./test-screens/TestGetExercises";
 
 export default function PageRoutes() {
   return (
@@ -18,6 +19,7 @@ export default function PageRoutes() {
 
           {/* test routes */}
           <Route path="/test-post" element={<TestAxios></TestAxios>}></Route>
+          <Route path="/test-get-exercises" element={<TestGetExercises></TestGetExercises>}></Route>
         </Routes>
       </BrowserRouter>
     </>

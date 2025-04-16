@@ -11,12 +11,12 @@ const AUTH_AXIOS = axios.create({
 
 const authApi = async (url: string, data: { [key: string]: any }) => {
   try {
-    const res = await AUTH_AXIOS.post(url, data);
-    console.log(res.data);
-    return res;
-  } catch (err: any) {
-    console.error(err.message);
-    throw err;
+    const response = await AUTH_AXIOS.post(url, data);
+    console.log(response.data);
+    return response;
+  } catch (error: any) {
+    console.error(error.message);
+    throw error;
   }
 };
 
