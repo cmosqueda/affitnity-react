@@ -7,6 +7,7 @@ import Login from "./auth-screens/Login";
 import Register from "./auth-screens/Register";
 import TestAxios from "./test-screens/TestAxios";
 import TestGetExercises from "./test-screens/TestGetExercises";
+import Login2nd from "./auth/Login2nd";
 
 export default function PageRoutes() {
   return (
@@ -14,7 +15,8 @@ export default function PageRoutes() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
-          <Route path="/login" element={<Login></Login>}></Route>
+          {/* <Route path="/login" element={<Login></Login>}></Route> */}
+          <Route path="/login" element={<Login2nd></Login2nd>}></Route>
           <Route path="/register" element={<Register></Register>}></Route>
 
           {/* test routes */}
