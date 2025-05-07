@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'rest_framework_simplejwt',
+    'rest_framework.authtoken',
+    # 'dj_rest_auth',
     'corsheaders',
 
     # django apps
@@ -46,6 +49,7 @@ INSTALLED_APPS = [
     'targets',
     'exercises',
     'plans',
+    'mealpreferences',
 ]
 
 # Allow vite react origin
@@ -146,4 +150,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,  # Adjust to control how many exercises per page
+    'DEFAULT_AUTHENTICATION_CLASSES':(
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+REST_AUTH = {
+    'USE_JWT': True,
+    'JWT_AUTH_COOKIE': 'affitnity_cookie',
+    'JWT_AUTH_REFRESH_COOKIE':'affitnity_refresh_cookie'
 }

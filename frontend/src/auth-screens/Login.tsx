@@ -16,8 +16,10 @@ import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import { authApi } from "@/api/auth";
+// import { authApi } from "@/api/auth";
 // import { AsyncLocalStorage } from "async_hooks";
+
+import { useAuth } from "@/AuthContext";
 
 // zod schema
 const formSchema = z.object({
@@ -32,6 +34,7 @@ const formSchema = z.object({
 function LoginForm() {
   // define use navigate hook
   const navigate = useNavigate();
+  const { login } = useAuth();
   // define server error use state hook
   // const [serverError, setServerError] = useState<string | null>(null);
 
@@ -46,18 +49,11 @@ function LoginForm() {
 
   // on submmit async function
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // do something
     try {
-      // setServerError(null);
-      // console.log("Login success", values);
-      await authApi("/users/login/", values);
-      console.log("sumakses", values);
-
-      // navigate to home
-      navigate("/");
+      await login(values); // ✅ Centralized logic
+      navigate("/"); // ✅ Redirect after successful login
     } catch (error: any) {
-      // setServerError("Something went wrong. Please try again.");
-      console.error("hindi sumakses:", error.message);
+      console.error("Login failed:", error.message);
     }
   }
 

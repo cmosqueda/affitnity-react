@@ -70,6 +70,8 @@ function RegisterForm() {
     }
   }
 
+  // aysa, diri ko nag stop, kailangan nako ma apply ang sa register
+
   // render login form
   return (
     <>

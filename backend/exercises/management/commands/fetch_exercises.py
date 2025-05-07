@@ -11,7 +11,7 @@ class Command(BaseCommand):
         offset = 0
         limit = 10  # you can adjust this for more items per page
         total_fetched = 0
-        max_pages = 20  # optional: limit how many pages to fetch
+        max_pages = 133  # optional: limit how many pages to fetch
 
         try:
             for page_count in range(max_pages):

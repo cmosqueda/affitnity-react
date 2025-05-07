@@ -4,6 +4,7 @@ from users.models import Profile
 
 # Create your models here.
 
+# fitness target
 class Target(models.Model):
     EXPERIENCE_LEVEL_CHOICES = [
         ('beginner', 'Beginner'),

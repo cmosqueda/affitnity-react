@@ -1,23 +1,66 @@
 import axios from "axios";
 
-// set auth axios instance
+// Define the expected response shape
+export type AuthResponse = {
+  access: string;
+  refresh: string;
+  user: {
+    id: number;
+    username: string;
+    email?: string;
+  };
+};
+
+export type ValidateTokenResponse = {
+  user: {
+    id: number;
+    username: string;
+    email?: string;
+  };
+};
+
+// Axios instance
 const AUTH_AXIOS = axios.create({
   baseURL: "http://localhost:8000",
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
-// auth api -> login and register
-// default url login -> /users/login/
-// default url register -> /users/register/
+// Add access token from localStorage before each request
+AUTH_AXIOS.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem("accessToken");
+    if (token) {
+      config.headers = config.headers ?? {};
+      config.headers["Authorization"] = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 
-const authApi = async (url: string, data: { [key: string]: any }) => {
+// Login or Register API call
+const authApi = async (url: string, data: { [key: string]: any }): Promise<AuthResponse> => {
   try {
     const response = await AUTH_AXIOS.post(url, data);
-    console.log(response.data);
-    return response;
+    return response.data as AuthResponse;
   } catch (error: any) {
-    console.error(error.message);
+    console.error("Auth failed:", error.response?.data || error.message);
     throw error;
   }
 };
 
-export { authApi };
+// Token validation API call
+const validateToken = async (): Promise<ValidateTokenResponse> => {
+  try {
+    // validate token
+    const response = await AUTH_AXIOS.get<ValidateTokenResponse>("/users/validate-token/");
+    return response.data;
+  } catch (error: any) {
+    console.error("Token validation failed:", error.response?.data || error.message);
+    throw error;
+  }
+};
+
+export { AUTH_AXIOS, authApi, validateToken };
