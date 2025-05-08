@@ -1,7 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
+body {
+  @apply bg-snow-white;
+  @apply font-aeonik;
+}
+
+@theme {
+  /* font families */
+  --font-aeonik: "Aeonik", sans-serif;
+  --font-manrope: "Manrope", sans-serif;
+  --font-dmsans: "DM Sans", sans-serif;
+
+  /* background colors */
+  --color-snow-white: #f8f8ff;
+  --color-moss-black: #031602;
+  --color-brand: #fca311;
+
+  /* secondary colors */
+  --color-ash: #b5b5b5;
+  --color-mygray: #d2d2d2;
+  --color-facebook-blue: #3f51b5;
+  --color-red-watermelon: #ff9286;
+  --color-exerise-blue: ;
+  --color-healthy-green: ;
+}
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
