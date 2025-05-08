@@ -4,6 +4,9 @@ import LoginForm from "./components/LoginForm";
 import LoginDescription from "./components/LoginDescription";
 import ChooseUs from "./components/ChooseUs";
 
+// import custom components
+import Footer from "@/custom-components/Footer";
+
 // login screen
 export default function Login() {
   return (
@@ -13,6 +16,7 @@ export default function Login() {
         <LoginForm />
         <LoginDescription />
         <ChooseUs />
+        <Footer />
       </div>
     </>
   );

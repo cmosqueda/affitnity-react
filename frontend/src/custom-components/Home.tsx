@@ -1,7 +1,7 @@
 // react import
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import DateComponent from "../components/DateComponent";
+import DateComponent from "./DateComponent";
 
 //import assets
 import HeroImage from "../assets/image/hero_image.jpg";
@@ -82,10 +82,7 @@ function Nav() {
         {/* profile desktop view */}
         <div className="group hidden md:flex md:gap-3 md:items-center md:justify-center md:border md:border-moss-black md:p-2 md:rounded-xl md:hover:bg-moss-black">
           <div className="w-8 h-8 rounded-4xl bg-gray-600"></div>
-          <Link
-            to="/"
-            className="font-aeonik font-normal text-md group-hover:text-snow-white"
-          >
+          <Link to="/" className="font-aeonik font-normal text-md group-hover:text-snow-white">
             Mike Philip
           </Link>
         </div>
@@ -167,9 +164,7 @@ function HomeHero() {
 
         {/* hero info container */}
         <div className="relative z-10 text-snow-white space-y-2.5 mx-5 my-auto flex flex-col items-center justify-center md:space-y-6">
-          <p className="font-dmsans font-medium text-sm md:text-lg">
-            Start your fitness and diet routine plan
-          </p>
+          <p className="font-dmsans font-medium text-sm md:text-lg">Start your fitness and diet routine plan</p>
           <h1 className="font-medium text-2xl md:text-5xl">
             Welcome, <span className="text-brand">Dummy Name</span>
           </h1>
@@ -202,12 +197,7 @@ function ServicesSec() {
         {/* grid services cont */}
         <div className="grid grid-cols-1 gap-4 mt-8 md:grid-cols-4">
           <div className="group bg-gray-200 hover:bg-moss-black hover:text-snow-white flex flex-col px-4 py-5 h-auto space-y-3 rounded-lg">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="70"
-              height="70"
-              viewBox="0 0 24 24"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24">
               <path
                 fill="currentColor"
                 className="group-hover:text-snow-white"
@@ -219,29 +209,20 @@ function ServicesSec() {
               <br />& Nutrition
             </h1>
             <p className="font-manrope text-sm group-hover:text-snow-white">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae
-              labore assumenda quod nulla autem facere repellat animi commodi,
-              ducimus rerum nam aperiam fuga veniam suscipit consequatur
-              expedita eius sequi obcaecati.
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae labore assumenda quod nulla autem facere
+              repellat animi commodi, ducimus rerum nam aperiam fuga veniam suscipit consequatur expedita eius sequi
+              obcaecati.
             </p>
             {/* browse more cont */}
             <div className="inline-flex items-center gap-3">
-              <a
-                href="http://"
-                className="font-dmsans text-sm group-hover:text-snow-white"
-              >
+              <a href="http://" className="font-dmsans text-sm group-hover:text-snow-white">
                 Browse More
               </a>
               <ArrowLongRightIcon className="size-5 group-hover:text-snow-white" />
             </div>
           </div>
           <div className="group bg-gray-200 hover:bg-moss-black hover:text-snow-white flex flex-col px-4 py-5 h-auto space-y-3 rounded-lg">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="70"
-              height="70"
-              viewBox="-2 -2 24 24"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="-2 -2 24 24">
               <path
                 fill="currentColor"
                 d="M6 0h8a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H6a6 6 0 0 1-6-6V6a6 6 0 0 1 6-6m0 2a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V6a4 4 0 0 0-4-4zm6 7h3a1 1 0 0 1 0 2h-3a1 1 0 0 1 0-2m-2 4h5a1 1 0 0 1 0 2h-5a1 1 0 0 1 0-2m0-8h5a1 1 0 0 1 0 2h-5a1 1 0 1 1 0-2m-4.172 5.243L7.95 8.12a1 1 0 1 1 1.414 1.415l-2.828 2.828a1 1 0 0 1-1.415 0L3.707 10.95a1 1 0 0 1 1.414-1.414z"
@@ -253,28 +234,19 @@ function ServicesSec() {
               Plan
             </h1>
             <p className="font-manrope text-sm group-hover:text-snow-white">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae
-              labore assumenda quod nulla autem facere repellat animi commodi,
-              ducimus rerum nam aperiam fuga veniam suscipit consequatur
-              expedita eius sequi obcaecati.
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae labore assumenda quod nulla autem facere
+              repellat animi commodi, ducimus rerum nam aperiam fuga veniam suscipit consequatur expedita eius sequi
+              obcaecati.
             </p>
             <div className="inline-flex items-center gap-3">
-              <a
-                href="http://"
-                className="font-dmsans text-sm group-hover:text-snow-white"
-              >
+              <a href="http://" className="font-dmsans text-sm group-hover:text-snow-white">
                 Browse More
               </a>
               <ArrowLongRightIcon className="size-5 group-hover:text-snow-white" />
             </div>
           </div>
           <div className="group bg-gray-200 hover:bg-moss-black hover:text-snow-white flex flex-col px-4 py-5 h-auto space-y-3 rounded-lg">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="70"
-              height="70"
-              viewBox="0 0 24 24"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24">
               <path
                 fill="currentColor"
                 d="M13.4 21.9L12 20.5l3.55-3.55l-8.5-8.5L3.5 12l-1.4-1.4l1.4-1.45l-1.4-1.4l2.1-2.1L2.8 4.2l1.4-1.4l1.45 1.4l2.1-2.1l1.4 1.4l1.45-1.4L12 3.5L8.45 7.05l8.5 8.5L20.5 12l1.4 1.4l-1.4 1.45l1.4 1.4l-2.1 2.1l1.4 1.45l-1.4 1.4l-1.45-1.4l-2.1 2.1l-1.4-1.4z"
@@ -285,28 +257,19 @@ function ServicesSec() {
               <br />& Meal Choices
             </h1>
             <p className="font-manrope text-sm group-hover:text-snow-white">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae
-              labore assumenda quod nulla autem facere repellat animi commodi,
-              ducimus rerum nam aperiam fuga veniam suscipit consequatur
-              expedita eius sequi obcaecati.
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae labore assumenda quod nulla autem facere
+              repellat animi commodi, ducimus rerum nam aperiam fuga veniam suscipit consequatur expedita eius sequi
+              obcaecati.
             </p>
             <div className="inline-flex items-center gap-3">
-              <a
-                href="http://"
-                className="font-dmsans text-sm group-hover:text-snow-white"
-              >
+              <a href="http://" className="font-dmsans text-sm group-hover:text-snow-white">
                 Browse More
               </a>
               <ArrowLongRightIcon className="size-5 group-hover:text-snow-white" />
             </div>
           </div>
           <div className="group bg-gray-200 hover:bg-moss-black hover:text-snow-white flex flex-col px-4 py-5 h-auto space-y-3 rounded-lg">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="70"
-              height="70"
-              viewBox="0 0 24 24"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24">
               <path
                 fill="currentColor"
                 d="M13.5 2c0 .444-.193.843-.5 1.118V5h5a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3h5V3.118A1.5 1.5 0 1 1 13.5 2M6 7a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1zm-4 3H0v6h2zm20 0h2v6h-2zM9 14.5a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3m6 0a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3"
@@ -317,16 +280,12 @@ function ServicesSec() {
               <br />& Guide
             </h1>
             <p className="font-manrope text-sm group-hover:text-snow-white">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae
-              labore assumenda quod nulla autem facere repellat animi commodi,
-              ducimus rerum nam aperiam fuga veniam suscipit consequatur
-              expedita eius sequi obcaecati.
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae labore assumenda quod nulla autem facere
+              repellat animi commodi, ducimus rerum nam aperiam fuga veniam suscipit consequatur expedita eius sequi
+              obcaecati.
             </p>
             <div className="inline-flex items-center gap-3">
-              <a
-                href="http://"
-                className="font-dmsans text-sm group-hover:text-snow-white"
-              >
+              <a href="http://" className="font-dmsans text-sm group-hover:text-snow-white">
                 Browse More
               </a>
               <ArrowLongRightIcon className="size-5 group-hover:text-snow-white" />
@@ -379,16 +338,9 @@ function Contacts() {
                     />
                   </svg>
                   <div className="">
-                    <h1 className="text-snow-white mb-1 text-lg font-medium">
-                      Chat with us
-                    </h1>
-                    <p className="text-gray-400 font-dmsans text-sm">
-                      Lorem ipsum dolor sit amet
-                    </p>
-                    <a
-                      href="#"
-                      className="text-snow-white text-xs font-dmsans hover:underline"
-                    >
+                    <h1 className="text-snow-white mb-1 text-lg font-medium">Chat with us</h1>
+                    <p className="text-gray-400 font-dmsans text-sm">Lorem ipsum dolor sit amet</p>
+                    <a href="#" className="text-snow-white text-xs font-dmsans hover:underline">
                       dummycompanysite.com
                     </a>
                   </div>
@@ -418,16 +370,9 @@ function Contacts() {
                     </g>
                   </svg>
                   <div>
-                    <h1 className="text-snow-white mb-1 text-lg font-medium">
-                      Visit Us
-                    </h1>
-                    <p className="text-gray-400 font-dmsans text-sm">
-                      Lorem ipsum dolor sit amet
-                    </p>
-                    <a
-                      href="#"
-                      className="text-snow-white text-xs font-dmsans hover:underline"
-                    >
+                    <h1 className="text-snow-white mb-1 text-lg font-medium">Visit Us</h1>
+                    <p className="text-gray-400 font-dmsans text-sm">Lorem ipsum dolor sit amet</p>
+                    <a href="#" className="text-snow-white text-xs font-dmsans hover:underline">
                       100th Street,
                       <br />
                       Cagayan de Oro City, 9000
@@ -455,16 +400,9 @@ function Contacts() {
                     />
                   </svg>
                   <div>
-                    <h1 className="text-snow-white mb-1 text-lg font-medium">
-                      Call Us
-                    </h1>
-                    <p className="text-gray-400 font-dmsans text-sm">
-                      Lorem ipsum dolor sit amet
-                    </p>
-                    <a
-                      href="#"
-                      className="text-snow-white text-xs font-dmsans hover:underline"
-                    >
+                    <h1 className="text-snow-white mb-1 text-lg font-medium">Call Us</h1>
+                    <p className="text-gray-400 font-dmsans text-sm">Lorem ipsum dolor sit amet</p>
+                    <a href="#" className="text-snow-white text-xs font-dmsans hover:underline">
                       +63 123 456 7890
                     </a>
                   </div>
@@ -474,48 +412,28 @@ function Contacts() {
               {/* social icons section */}
               <div className="flex mt-10 gap-3">
                 {/* facebook icon */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                   <path
                     fill="#F8F8FF"
                     d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95"
                   />
                 </svg>
                 {/* instagram icon */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                   <path
                     fill="#F8F8FF"
                     d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"
                   />
                 </svg>
                 {/* youtube icon */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                   <path
                     fill="#F8F8FF"
                     d="m10 15l5.19-3L10 9zm11.56-7.83c.13.47.22 1.1.28 1.9c.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83c-.25.9-.83 1.48-1.73 1.73c-.47.13-1.33.22-2.65.28c-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44c-.9-.25-1.48-.83-1.73-1.73c-.13-.47-.22-1.1-.28-1.9c-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83c.25-.9.83-1.48 1.73-1.73c.47-.13 1.33-.22 2.65-.28c1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44c.9.25 1.48.83 1.73 1.73"
                   />
                 </svg>
                 {/* tiktok icon */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                   <path
                     fill="#F8F8FF"
                     d="M16.6 5.82s.51.5 0 0A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48"
@@ -529,9 +447,7 @@ function Contacts() {
               Any concerns, don’t worry <br />
               we’re open to have a chat with you
             </h1>
-            <p className="text-sm">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            </p>
+            <p className="text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
 
             {/* form section */}
             <div>

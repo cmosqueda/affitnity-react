@@ -14,7 +14,8 @@ export default function LoginDescription() {
             <h2 className="font-aeonik text-[20px] leading-8 font-bold text-moss-black mt-5 md:text-3xl md:mb-5">
               Thank you for choosing us to <br /> start your fitness and diet journey.
             </h2>
-            <p className="font-dmsans text-[15px] mt-3 mb-5 md:text-lg md:w-xl md:mb-5">
+            {/* ommitted md:w-xl */}
+            <p className="font-dmsans text-[15px] mt-3 mb-5 md:text-lg md:mb-5">
               We're excited to be part of your transformation. Whether you're here to build strength, eat healthier, or
               simply feel better every day — we're here to guide you at every step. Let’s achieve your goals together
               with personalized support, proven strategies, and a community that has your back.
@@ -29,7 +30,7 @@ export default function LoginDescription() {
           </div>
 
           {/* image container */}
-          <div className="order-first">
+          <div className="order-first ml-auto md:ml-7">
             <img src={FitnessPic} alt="fitness picture ni dari" className="w-3xl rounded-lg md:w-full" />
           </div>
         </div>

@@ -23,7 +23,8 @@ export default function ChooseUs() {
         </div>
         {/* grid section */}
         <div className="grid grid-cols-1 font-medium gap-4 md:grid-cols-3">
-          <div className="group text-2xl bg-mygray text-moss-black py-8 px-5 rounded-lg hover:bg-moss-black">
+          {/* ommitted text-2xl */}
+          <div className="group bg-mygray text-moss-black py-8 px-5 rounded-lg hover:bg-moss-black">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="70"
@@ -63,7 +64,8 @@ export default function ChooseUs() {
             </div>
           </div>
 
-          <div className="group text-2xl bg-mygray text-moss-black py-8 px-3 rounded-lg hover:bg-moss-black">
+          {/* ommitted text-2xl */}
+          <div className="group bg-mygray text-moss-black py-8 px-3 rounded-lg hover:bg-moss-black">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="70"
@@ -104,7 +106,8 @@ export default function ChooseUs() {
             </div>
           </div>
 
-          <div className="group text-2xl bg-mygray text-moss-black py-8 px-3 rounded-lg hover:bg-moss-black">
+          {/* ommitted text-2xl */}
+          <div className="group bg-mygray text-moss-black py-8 px-3 rounded-lg hover:bg-moss-black">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="70"
