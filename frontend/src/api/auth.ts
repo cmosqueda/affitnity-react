@@ -44,6 +44,7 @@ AUTH_AXIOS.interceptors.request.use(
 const authApi = async (url: string, data: { [key: string]: any }): Promise<AuthResponse> => {
   try {
     const response = await AUTH_AXIOS.post(url, data);
+    console.log("Auth success:", response?.data);
     return response.data as AuthResponse;
   } catch (error: any) {
     console.error("Auth failed:", error.response?.data || error.message);
@@ -56,6 +57,7 @@ const validateToken = async (): Promise<ValidateTokenResponse> => {
   try {
     // validate token
     const response = await AUTH_AXIOS.get<ValidateTokenResponse>("/users/validate-token/");
+    console.log("Token validation success:", response?.data);
     return response.data;
   } catch (error: any) {
     console.error("Token validation failed:", error.response?.data || error.message);

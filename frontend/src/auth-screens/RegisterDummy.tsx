@@ -183,7 +183,7 @@ function RegisterForm() {
         <div>
           <p className="text-sm  leading-none text-center">
             Already have an account?{" "}
-            <Link to="/login" className=" font-medium hover:underline">
+            <Link to="/login-v2" className=" font-medium hover:underline">
               Login here.
             </Link>
           </p>
@@ -194,7 +194,7 @@ function RegisterForm() {
 }
 
 // login screen
-export default function Register() {
+export default function RegisterDummy() {
   return (
     <>
       {/* heading and subheading */}

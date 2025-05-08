@@ -1,12 +1,5 @@
 // shadcn modules
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 
 //
 import { Button } from "@/components/ui/button";
@@ -24,7 +17,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
-import Footer from "../pages/Footer";
+import Footer from "../custom-components/Footer";
 
 //images
 import FitnessPic from "../assets/image/fitness_pic.jpg";
@@ -45,6 +38,7 @@ const formSchema = z.object({
 
 function LoginHeader() {
   return (
+    //
     <>
       <div className="flex items-center justify-between px-5 pt-6">
         {/* Logo Text */}
@@ -56,10 +50,7 @@ function LoginHeader() {
         {/* Button container */}
         <div className="flex items-center gap-5 font-dmsans text-sm md:text-[15px]">
           <Link to="/">Login</Link>
-          <Link
-            to="/"
-            className="text-snow-white bg-moss-black px-3 py-2 rounded-lg hover:bg-gray-800"
-          >
+          <Link to="/" className="text-snow-white bg-moss-black px-3 py-2 rounded-lg hover:bg-gray-800">
             Create an account
           </Link>
         </div>
@@ -96,13 +87,10 @@ function LoginForm() {
       }
 
       // make a POST request to the backend
-      const response = await axios.post<LoginResponse>(
-        "http://localhost:8000/api/login/",
-        {
-          email: values.email,
-          password: values.password,
-        }
-      );
+      const response = await axios.post<LoginResponse>("http://localhost:8000/api/login/", {
+        email: values.email,
+        password: values.password,
+      });
 
       const token = response.data.token;
       localStorage.setItem("token", token);
@@ -144,9 +132,7 @@ function LoginForm() {
               name="email"
               render={({ field, fieldState }) => (
                 <FormItem>
-                  <FormLabel className="font-dmsans text-[14px] text-moss-black">
-                    Email
-                  </FormLabel>
+                  <FormLabel className="font-dmsans text-[14px] text-moss-black">Email</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Enter your email"
@@ -170,15 +156,9 @@ function LoginForm() {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="font-dmsans text-[14px] text-moss-black">
-                    Password
-                  </FormLabel>
+                  <FormLabel className="font-dmsans text-[14px] text-moss-black">Password</FormLabel>
                   <FormControl className="text-[13.5px] font-manrope focus-visible:ring-2 focus-visible:ring-brand">
-                    <Input
-                      type="password"
-                      placeholder="Enter your password"
-                      {...field}
-                    />
+                    <Input type="password" placeholder="Enter your password" {...field} />
                   </FormControl>
                   <FormMessage className="text-left text-red-600 font-dmsans text-xs"></FormMessage>
                 </FormItem>
@@ -200,10 +180,7 @@ function LoginForm() {
           <div className="font-dmsans text-xs">
             <p className="leading-none text-center">
               New to Affitnity?{" "}
-              <Link
-                to="/register"
-                className="font-medium text-brand hover:underline"
-              >
+              <Link to="/register" className="font-medium text-brand hover:underline">
                 Register here.
               </Link>
             </p>
@@ -222,15 +199,12 @@ function LoginDescription() {
           {/* description container */}
           <div className="md:order-first md:my-auto">
             <h2 className="font-aeonik text-[20px] leading-8 font-bold text-moss-black mt-5 md:text-3xl md:mb-5">
-              Thank you for choosing us to <br /> start your fitness and diet
-              journey.
+              Thank you for choosing us to <br /> start your fitness and diet journey.
             </h2>
             <p className="font-dmsans text-[15px] mt-3 mb-5 md:text-lg md:w-xl md:mb-5">
-              We're excited to be part of your transformation. Whether you're
-              here to build strength, eat healthier, or simply feel better every
-              day — we're here to guide you at every step. Let’s achieve your
-              goals together with personalized support, proven strategies, and a
-              community that has your back.
+              We're excited to be part of your transformation. Whether you're here to build strength, eat healthier, or
+              simply feel better every day — we're here to guide you at every step. Let’s achieve your goals together
+              with personalized support, proven strategies, and a community that has your back.
             </p>
             <Link
               // create a page nga kamulo pa siya og buhat
@@ -243,11 +217,7 @@ function LoginDescription() {
 
           {/* image container */}
           <div className="order-first">
-            <img
-              src={FitnessPic}
-              alt="fitness picture ni dari"
-              className="w-3xl rounded-lg md:w-full"
-            />
+            <img src={FitnessPic} alt="fitness picture ni dari" className="w-3xl rounded-lg md:w-full" />
           </div>
         </div>
       </div>
@@ -259,14 +229,12 @@ function ChooseUs() {
   return (
     <>
       <div className="mx-5 mt-40 md:mx-17">
-        <h1 className="text-[25px] font-bold mb-2.5 md:text-3xl">
-          Why Choose Us?
-        </h1>
+        <h1 className="text-[25px] font-bold mb-2.5 md:text-3xl">Why Choose Us?</h1>
         {/* description with button cont */}
         <div className="md:flex md:justify-between md:items-center">
           <p className="font-dmsans text-[15px] mb-2.5 md:flex">
-            Affitnity helps you plan smarter by turning complex financial and
-            lifestyle decisions into simple, personalized steps.
+            Affitnity helps you plan smarter by turning complex financial and lifestyle decisions into simple,
+            personalized steps.
             <br />
             It's clarity, confidence, and control all in one place.
           </p>
@@ -299,17 +267,12 @@ function ChooseUs() {
               Workout
             </h1>
             <p className="font-manrope text-sm font-normal mb-6 text-moss-black group-hover:text-brand">
-              We believe fitness should be personal, which is why our workouts
-              are tailored to your goals, body, and lifestyle. Personalized
-              training helps you achieve better results, stay motivated, and
-              avoid injuries. With a custom plan, you’re set for lasting success
-              and your best self.
+              We believe fitness should be personal, which is why our workouts are tailored to your goals, body, and
+              lifestyle. Personalized training helps you achieve better results, stay motivated, and avoid injuries.
+              With a custom plan, you’re set for lasting success and your best self.
             </p>
             <div className="flex items-center gap-3">
-              <Link
-                to="/"
-                className="font-manrope text-sm font-medium group-hover:text-brand"
-              >
+              <Link to="/" className="font-manrope text-sm font-medium group-hover:text-brand">
                 Read More
               </Link>
               <svg
@@ -320,11 +283,7 @@ function ChooseUs() {
                 stroke="currentColor"
                 className="size-6 group-hover:text-brand"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
               </svg>
             </div>
           </div>
@@ -349,17 +308,12 @@ function ChooseUs() {
               Generated
             </h1>
             <p className="font-manrope text-sm font-normal mb-6 text-moss-black group-hover:text-brand">
-              We believe fitness should be as unique as you are. Our AI-powered
-              workouts are tailored to your goals, body, and lifestyle, helping
-              you train smarter and achieve real results. With personalized
-              guidance, you’ll stay motivated, reduce the risk of injury, and
-              unlock lasting success.
+              We believe fitness should be as unique as you are. Our AI-powered workouts are tailored to your goals,
+              body, and lifestyle, helping you train smarter and achieve real results. With personalized guidance,
+              you’ll stay motivated, reduce the risk of injury, and unlock lasting success.
             </p>
             <div className="flex items-center gap-3">
-              <Link
-                to="/"
-                className="font-manrope text-sm font-medium group-hover:text-brand"
-              >
+              <Link to="/" className="font-manrope text-sm font-medium group-hover:text-brand">
                 Read More
               </Link>
               <svg
@@ -370,11 +324,7 @@ function ChooseUs() {
                 stroke="currentColor"
                 className="size-6 group-hover:text-brand"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-                />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
               </svg>
             </div>
           </div>
@@ -406,11 +356,9 @@ function ChooseUs() {
               Meal Guide
             </h1>
             <p className="font-manrope text-sm font-normal mb-6 text-moss-black group-hover:text-brand">
-              We believe nutrition should adapt to you, not the other way
-              around. Our adaptive meal guides are tailored to your health
-              goals, preferences, and lifestyle, making healthy eating simple
-              and sustainable. With personalized guidance, you can fuel your
-              body smarter and stay on track toward lasting wellness.
+              We believe nutrition should adapt to you, not the other way around. Our adaptive meal guides are tailored
+              to your health goals, preferences, and lifestyle, making healthy eating simple and sustainable. With
+              personalized guidance, you can fuel your body smarter and stay on track toward lasting wellness.
             </p>
             <div className="flex items-center gap-3 group-hover:text-brand">
               <Link to="/" className="font-manrope text-sm font-medium">
@@ -424,11 +372,7 @@ function ChooseUs() {
                 stroke="currentColor"
                 className="size-6"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-                />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
               </svg>
             </div>
           </div>
