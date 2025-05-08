@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 export default function ChooseUs() {
   return (
     <>
-      <div className="mx-5 mt-40 md:mx-16">
+      <div className="mx-5 mt-40 md:mx-17">
         <h1 className="text-[25px] font-bold mb-2.5 md:text-3xl">Why Choose Us?</h1>
         {/* description with button cont */}
         <div className="md:flex md:justify-between md:items-center">
-          <p className="text-[15px] mb-2.5 md:flex">
+          <p className="font-dmsans text-[15px] mb-2.5 md:flex">
             Affitnity helps you plan smarter by turning complex financial and lifestyle decisions into simple,
             personalized steps.
             <br />
@@ -15,16 +15,15 @@ export default function ChooseUs() {
           </p>
           {/* e modify ni siya e connect sa gemini api */}
           <Link
-            to={"/"}
-            className="px-5 py-3 text-[15px] mb-5 rounded-lg inline-flex items-center justify-center bg-neutral-900 text-shadow-white hover:bg-gray-800"
+            to="/"
+            className="px-5 py-3 text-[15px] mb-5 rounded-lg inline-flex items-center justify-center bg-moss-black font-dmsans text-snow-white hover:bg-gray-800"
           >
             Start your plan
           </Link>
         </div>
         {/* grid section */}
         <div className="grid grid-cols-1 font-medium gap-4 md:grid-cols-3">
-          {/* personalized workout */}
-          <div className=" group text-2xl bg-mygray text-moss-black py-8 px-5 rounded-lg hover:bg-moss-black">
+          <div className="group text-2xl bg-mygray text-moss-black py-8 px-5 rounded-lg hover:bg-moss-black">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="70"
@@ -64,7 +63,6 @@ export default function ChooseUs() {
             </div>
           </div>
 
-          {/* artificial intelligence */}
           <div className="group text-2xl bg-mygray text-moss-black py-8 px-3 rounded-lg hover:bg-moss-black">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +104,6 @@ export default function ChooseUs() {
             </div>
           </div>
 
-          {/* adaptive meal guide */}
           <div className="group text-2xl bg-mygray text-moss-black py-8 px-3 rounded-lg hover:bg-moss-black">
             <svg
               xmlns="http://www.w3.org/2000/svg"
