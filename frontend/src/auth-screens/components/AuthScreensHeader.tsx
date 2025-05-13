@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function LoginHeader() {
+export default function AuthScreensHeader() {
   return (
     <>
       <div className="flex items-center justify-between px-5 pt-6">

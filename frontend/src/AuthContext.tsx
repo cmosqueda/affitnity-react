@@ -20,7 +20,13 @@ type AuthContextType = {
   user: User | null;
   accessToken: string | null;
   login: (credentials: { username: string; password: string }) => Promise<void>;
-  register: (details: { username: string; password: string; email?: string }) => Promise<void>;
+  register: (details: {
+    first_name: string;
+    last_name: string;
+    username: string;
+    email?: string;
+    password: string;
+  }) => Promise<void>;
   logout: () => void;
 };
 
@@ -30,24 +36,32 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [accessToken, setAccessToken] = useState<string | null>(null);
 
+  // debug authprovider mounted
   useEffect(() => {
+    console.log("%c[AuthProvider] Mounted", "color: green");
     const storedToken = localStorage.getItem("accessToken");
 
     if (storedToken) {
+      console.log("[AuthProvider] Found stored token, validating...");
       validateToken()
         .then((data) => {
+          console.log("[AuthProvider] Token valid. User authenticated:", data.user);
           setUser(data.user);
           setAccessToken(storedToken);
           localStorage.setItem("user", JSON.stringify(data.user));
         })
         .catch(() => {
+          console.warn("[AuthProvider] Token invalid or expired. Logging out...");
           logout(); // Token invalid or expired
         });
+    } else {
+      console.log("[AuthProvider] No stored token found.");
     }
   }, []);
 
   const login = async (credentials: { username: string; password: string }) => {
     try {
+      console.log("[AuthProvider] Attempting login with credentials:", credentials.username);
       const data: AuthResponse = await authApi("/users/login/", credentials);
 
       setUser(data.user);
@@ -56,14 +70,23 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       localStorage.setItem("user", JSON.stringify(data.user));
       localStorage.setItem("accessToken", data.access);
       localStorage.setItem("refreshToken", data.refresh);
+
+      console.log("[AuthProvider] Login successful:", data.user);
     } catch (err) {
-      console.error("Login failed:", err);
+      console.error("[AuthProvider] Login failed:", err);
       throw err;
     }
   };
 
-  const register = async (details: { username: string; password: string; email?: string }) => {
+  const register = async (details: {
+    first_name: string;
+    last_name: string;
+    username: string;
+    email?: string;
+    password: string;
+  }) => {
     try {
+      console.log("[AuthProvider] Attempting registration for:", details.username);
       const data: AuthResponse = await authApi("/users/register/", details);
 
       setUser(data.user);
@@ -72,13 +95,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       localStorage.setItem("user", JSON.stringify(data.user));
       localStorage.setItem("accessToken", data.access);
       localStorage.setItem("refreshToken", data.refresh);
+
+      console.log("[AuthProvider] Registration successful:", data.user);
     } catch (err) {
-      console.error("Registration failed:", err);
+      console.error("[AuthProvider] Registration failed:", err);
       throw err;
     }
   };
 
   const logout = () => {
+    console.log("[AuthProvider] Logging out...");
     setUser(null);
     setAccessToken(null);
     localStorage.removeItem("user");

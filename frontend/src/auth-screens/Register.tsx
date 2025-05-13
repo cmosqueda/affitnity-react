@@ -1,19 +1,17 @@
-// import all Login components
+// import all register components
 import AuthScreensHeader from "./components/AuthScreensHeader";
-import LoginForm from "./components/LoginForm";
+import RegisterForm from "./components/RegisterForm";
 import LoginDescription from "./components/LoginDescription";
 import ChooseUs from "./components/ChooseUs";
-
-// import custom components
 import Footer from "@/custom-components/Footer";
 
-// login screen
-export default function Login() {
+// register screen
+export default function Register() {
   return (
     <>
       <div>
-        <AuthScreensHeader />
-        <LoginForm />
+        <AuthScreensHeader></AuthScreensHeader>
+        <RegisterForm />
         <LoginDescription />
         <ChooseUs />
         <Footer />

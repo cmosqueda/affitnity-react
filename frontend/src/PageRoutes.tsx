@@ -9,6 +9,7 @@ import TestAxios from "./test-screens/TestAxios";
 import TestGetExercises from "./test-screens/TestGetExercises";
 // import Login2nd from "./auth/Login2nd";
 import Login from "./auth-screens/Login";
+import Register from "./auth-screens/Register";
 import Home from "./pages-screens/Home";
 
 export default function PageRoutes() {
@@ -20,6 +21,7 @@ export default function PageRoutes() {
           <Route path="/login" element={<LoginDummy></LoginDummy>}></Route>
           <Route path="/login-v2" element={<Login></Login>}></Route>
           <Route path="/register" element={<RegisterDummy></RegisterDummy>}></Route>
+          <Route path="/register-v2" element={<Register></Register>}></Route>
 
           {/* test routes */}
           <Route path="/test-post" element={<TestAxios></TestAxios>}></Route>
