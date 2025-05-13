@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 // contacts
 export default function Contacts() {
   return (
@@ -25,18 +27,18 @@ export default function Contacts() {
                     <path
                       fill="none"
                       stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
                       d="M30.51 29.42c-1.454 4.82-5.644 8.553-10.738 9.294a13.28 13.28 0 0 1-8.48-1.555l-4.344 1.088c-1.107.275-2.113-.722-1.839-1.83l1.089-4.353a13.3 13.3 0 0 1-1.555-8.47c.86-5.826 5.607-10.482 11.452-11.196c3.036-.375 5.908.275 8.296 1.656"
-                      strokeWidth="2"
+                      stroke-width="2"
                     />
                     <path
                       fill="none"
                       stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
                       d="M34.493 9.22c4.538.56 8.232 4.171 8.894 8.696a10.3 10.3 0 0 1-1.208 6.584l.846 3.377a1.173 1.173 0 0 1-1.423 1.423l-3.378-.845a10.3 10.3 0 0 1-6.584 1.207c-4.525-.662-8.137-4.356-8.695-8.895A10.325 10.325 0 0 1 34.493 9.22"
-                      strokeWidth="1.5"
+                      stroke-width="1.5"
                     />
                   </svg>
                   <div className="">
@@ -60,7 +62,13 @@ export default function Contacts() {
                     viewBox="0 0 24 24"
                     className="bg-snow-white p-[3px] rounded-lg"
                   >
-                    <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1">
+                    <g
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1"
+                    >
                       <circle cx="12" cy="10" r="3" />
                       <path d="M12 2a8 8 0 0 0-8 8c0 1.892.402 3.13 1.5 4.5L12 22l6.5-7.5c1.098-1.37 1.5-2.608 1.5-4.5a8 8 0 0 0-8-8" />
                     </g>
@@ -77,9 +85,8 @@ export default function Contacts() {
                 </div>
               </div>
 
-              {/* call us section */}
               <div>
-                {/* call us svg cont */}
+                {/* visit us svg cont */}
                 <div className="flex gap-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -91,8 +98,8 @@ export default function Contacts() {
                     <path
                       fill="none"
                       stroke="currentColor"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
                       d="M7.829 16.171a20.9 20.9 0 0 1-4.846-7.614c-.573-1.564-.048-3.282 1.13-4.46l.729-.728a2.11 2.11 0 0 1 2.987 0l1.707 1.707a2.11 2.11 0 0 1 0 2.987l-.42.42a1.81 1.81 0 0 0 0 2.56l3.84 3.841a1.81 1.81 0 0 0 2.56 0l.421-.42a2.11 2.11 0 0 1 2.987 0l1.707 1.707a2.11 2.11 0 0 1 0 2.987l-.728.728c-1.178 1.179-2.896 1.704-4.46 1.131a20.9 20.9 0 0 1-7.614-4.846Z"
                     />
                   </svg>
@@ -140,25 +147,90 @@ export default function Contacts() {
             </div>
           </div>
 
-          {/* contact form */}
-          <div className="bg-brand rounded-xl self-start grid grid-cols-1 p-5 space-y-3 md:col-span-4">
+          {/* <div className="bg-brand rounded-xl grid grid-cols-1 p-5 md:col-span-4">
             <h1 className="text-moss-black text-3xl font-semibold">
               Any concerns, don’t worry <br />
               we’re open to have a chat with you
             </h1>
-            <p className="text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            <p className="text-sm font-dmsans">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            </p>
 
-            {/* input field */}
+            {/* form section
             <div>
               <input
                 type="text"
                 placeholder="Your name"
-                className="bg-transparent w-full rounded-lg px-2 h-8 text-sm text-moss-black border border-moss-black"
+                className="bg-transparent border-0 border-b w-full h-8 text-sm text-moss-black placeholder:text-moss-black border-moss-black focus:outline-none"
               />
             </div>
+
+            <div>
+              <input
+                type="text"
+                placeholder="Your email"
+                className="bg-transparent mb-8 border-0 border-b w-full h-8 text-sm text-moss-black placeholder:text-moss-black border-moss-black focus:outline-none"
+              />
+            </div>
+
+            <div>
+              <input
+                type="text"
+                placeholder="Your message"
+                className="bg-transparent border-0 border-b mb-5 w-full h-8 text-sm text-moss-black placeholder:text-moss-black border-moss-black focus:outline-none"
+              />
+            </div>
+
+            <Link
+              to=""
+              className="bg-moss-black text-snow-white hover:bg-gray-900 p-2 rounded-lg font-dmsans text-sm text-center"
+            >
+              Submit your message
+            </Link>
+          </div> */}
+
+          {/* right container */}
+          <div className="bg-brand grid grid-rows-[1fr_auto] rounded-lg p-5 md:col-span-4">
+            <div>
+              <h1 className="text-2xl text-moss-black font-semibold mb-5 md:text-3xl">
+                Any concerns, don’t worry <br />
+                we’re open to have a chat with you
+              </h1>
+
+              <p className="text-sm font-dmsans mb-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+
+              {/* input forms */}
+              <div className="w-full">
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  className="bg-transparent mb-3 border-0 border-b w-full h-8 text-sm text-moss-black placeholder:text-moss-black border-moss-black focus:outline-none"
+                />
+
+                <input
+                  type="text"
+                  placeholder="Your email"
+                  className="bg-transparent mb-10 border-0 border-b w-full h-8 text-sm text-moss-black placeholder:text-moss-black border-moss-black focus:outline-none"
+                />
+
+                <input
+                  type="text"
+                  placeholder="Your message"
+                  className="bg-transparent mb-3 border-0 border-b w-full h-8 text-sm text-moss-black placeholder:text-moss-black border-moss-black focus:outline-none"
+                />
+              </div>
+            </div>
+
+            <Link
+              to=""
+              className="bg-moss-black text-snow-white hover:bg-gray-900 block w-full p-2 rounded-md font-dmsans text-sm text-center"
+            >
+              Submit your message
+            </Link>
           </div>
         </div>
       </div>
+      {/* <Footer /> */}
     </>
   );
 }
