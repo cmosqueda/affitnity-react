@@ -51,6 +51,9 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
                 'id': self.user.id,
                 'username': self.user.username,
                 'email': self.user.email,
+                'first_name':self.user.first_name,
+                'last_name':self.user.last_name,
+
             }
         })
 

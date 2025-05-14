@@ -27,18 +27,18 @@ export default function Contacts() {
                     <path
                       fill="none"
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M30.51 29.42c-1.454 4.82-5.644 8.553-10.738 9.294a13.28 13.28 0 0 1-8.48-1.555l-4.344 1.088c-1.107.275-2.113-.722-1.839-1.83l1.089-4.353a13.3 13.3 0 0 1-1.555-8.47c.86-5.826 5.607-10.482 11.452-11.196c3.036-.375 5.908.275 8.296 1.656"
-                      stroke-width="2"
+                      strokeWidth="2"
                     />
                     <path
                       fill="none"
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M34.493 9.22c4.538.56 8.232 4.171 8.894 8.696a10.3 10.3 0 0 1-1.208 6.584l.846 3.377a1.173 1.173 0 0 1-1.423 1.423l-3.378-.845a10.3 10.3 0 0 1-6.584 1.207c-4.525-.662-8.137-4.356-8.695-8.895A10.325 10.325 0 0 1 34.493 9.22"
-                      stroke-width="1.5"
+                      strokeWidth="1.5"
                     />
                   </svg>
                   <div className="">
@@ -62,13 +62,7 @@ export default function Contacts() {
                     viewBox="0 0 24 24"
                     className="bg-snow-white p-[3px] rounded-lg"
                   >
-                    <g
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1"
-                    >
+                    <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1">
                       <circle cx="12" cy="10" r="3" />
                       <path d="M12 2a8 8 0 0 0-8 8c0 1.892.402 3.13 1.5 4.5L12 22l6.5-7.5c1.098-1.37 1.5-2.608 1.5-4.5a8 8 0 0 0-8-8" />
                     </g>
@@ -98,8 +92,8 @@ export default function Contacts() {
                     <path
                       fill="none"
                       stroke="currentColor"
-                      stroke-linejoin="round"
-                      stroke-width="1.5"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
                       d="M7.829 16.171a20.9 20.9 0 0 1-4.846-7.614c-.573-1.564-.048-3.282 1.13-4.46l.729-.728a2.11 2.11 0 0 1 2.987 0l1.707 1.707a2.11 2.11 0 0 1 0 2.987l-.42.42a1.81 1.81 0 0 0 0 2.56l3.84 3.841a1.81 1.81 0 0 0 2.56 0l.421-.42a2.11 2.11 0 0 1 2.987 0l1.707 1.707a2.11 2.11 0 0 1 0 2.987l-.728.728c-1.178 1.179-2.896 1.704-4.46 1.131a20.9 20.9 0 0 1-7.614-4.846Z"
                     />
                   </svg>

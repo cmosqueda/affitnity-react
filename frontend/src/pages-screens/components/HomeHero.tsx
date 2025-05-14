@@ -5,8 +5,12 @@ import DateComponent from "@/custom-components/DateComponent";
 //import assets
 import HeroImage from "../../assets/image/hero_image.jpg";
 
+// import useAuth
+import { useAuth } from "@/AuthContext";
+
 // home hero
 export default function HomeHero() {
+  const { user } = useAuth();
   // const [user, setUser] = useState(null);
 
   // useEffect(() => {
@@ -44,7 +48,10 @@ export default function HomeHero() {
         <div className="relative z-10 text-snow-white space-y-2.5 mx-5 my-auto flex flex-col items-center justify-center md:space-y-6">
           <p className="font-dmsans font-medium text-sm md:text-lg">Start your fitness and diet routine plan</p>
           <h1 className="font-medium text-2xl md:text-5xl">
-            Welcome, <span className="text-brand">Dummy Name</span>
+            Welcome,{" "}
+            <span className="text-brand">
+              {user?.first_name ? `${user.first_name} ${user.last_name}` : user?.username || "Guest"}
+            </span>
           </h1>
           <DateComponent />
           <Link

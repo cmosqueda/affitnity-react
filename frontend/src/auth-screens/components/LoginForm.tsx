@@ -64,7 +64,7 @@ export default function LoginForm() {
         {/* card form */}
         <Card className=" w-full mx-auto my-36 p-5 rounded-lg shadow-xl shadow-ash/20 mb-36 md:max-w-97">
           <CardHeader className="text-center">
-            <CardTitle className="mb-1 font-aeonik font-semibold">
+            <CardTitle className="text-4xl mb-1 font-aeonik font-semibold">
               <h1>
                 Welcome,<span className="text-brand"> User</span>
               </h1>

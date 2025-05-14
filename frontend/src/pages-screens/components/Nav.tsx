@@ -9,7 +9,12 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 // navlinks
 import NavLinks from "./NavLinks";
 
+// useAuth
+import { useAuth } from "@/AuthContext";
+
 export default function Nav() {
+  const { user } = useAuth();
+
   // isOpen state to track the navbar status (open/close)
   const [isOpen, setIsOpen] = useState(false);
 
@@ -50,7 +55,7 @@ export default function Nav() {
         <div className="group hidden md:flex md:gap-3 md:items-center md:justify-center md:border md:border-moss-black md:p-2 md:rounded-xl md:hover:bg-moss-black">
           <div className="w-8 h-8 rounded-4xl bg-gray-600"></div>
           <Link to="/" className="font-aeonik font-normal text-md group-hover:text-snow-white">
-            Mike Philip
+            {user?.username || "Guest"}
           </Link>
         </div>
 
@@ -86,7 +91,9 @@ export default function Nav() {
 
             <div className="flex flex-row-reverse items-center justify-center gap-5 absolute self-end bottom-0 mb-3">
               <div className="w-10 h-10 rounded-4xl bg-gray-600"></div>
-              <h1 className="font-aeonik font-medium text-xl">Mike Philip</h1>
+
+              {/* INSERT REAL USER NAME HERE */}
+              <h1 className="font-aeonik font-medium text-xl">{user?.username || "Guest"}</h1>
             </div>
           </div>
         )}
