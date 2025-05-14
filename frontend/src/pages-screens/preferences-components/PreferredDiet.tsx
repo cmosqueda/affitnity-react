@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useUserPreferenceFormStore } from "@/stores/useUserPreferenceFormStore";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import {
@@ -27,19 +28,34 @@ const initialOptions = [
 ];
 
 export default function PreferredDiet() {
-  const [selected, setSelected] = useState<string[]>([]);
+  const preferredDiet = useUserPreferenceFormStore((state) => state.preferred_diet);
+  const setPreferredDiet = useUserPreferenceFormStore((state) => state.setPreferredDiet);
+
   const [options, setOptions] = useState(initialOptions);
   const [customInput, setCustomInput] = useState("");
+  const [selected, setSelected] = useState<string[]>(preferredDiet);
+
+  // Sync Zustand state with local selected state on load or update
+  useEffect(() => {
+    setSelected(preferredDiet);
+  }, [preferredDiet]);
 
   const toggleOption = (value: string) => {
-    setSelected((prev) => (prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]));
+    const updated = selected.includes(value) ? selected.filter((v) => v !== value) : [...selected, value];
+
+    setSelected(updated);
+    setPreferredDiet(updated); // Sync with Zustand
   };
 
   const handleAddCustom = () => {
     const trimmed = customInput.trim();
     if (trimmed && !options.includes(trimmed)) {
-      setOptions([...options, trimmed]);
-      setSelected([...selected, trimmed]);
+      const newOptions = [...options, trimmed];
+      const newSelected = [...selected, trimmed];
+
+      setOptions(newOptions);
+      setSelected(newSelected);
+      setPreferredDiet(newSelected); // Sync with Zustand
     }
     setCustomInput("");
   };
@@ -63,26 +79,20 @@ export default function PreferredDiet() {
         {/* "Others" button with drawer */}
         <Drawer>
           <DrawerTrigger asChild>
-            <Button
-              variant="outline"
-              onClick={(e) => {
-                // Remove focus to prevent accessibility warning
-                e.currentTarget.blur();
-              }}
-            >
+            <Button variant="outline" onClick={(e) => e.currentTarget.blur()}>
               + Others
             </Button>
           </DrawerTrigger>
           <DrawerContent>
             <div className="mx-auto w-full max-w-sm">
               <DrawerHeader>
-                <DrawerTitle>Add a Custom Goal</DrawerTitle>
-                <DrawerDescription>Enter a specific goal not listed above.</DrawerDescription>
+                <DrawerTitle>Add a Custom Diet</DrawerTitle>
+                <DrawerDescription>Enter a specific preference not listed above.</DrawerDescription>
               </DrawerHeader>
 
               <div className="p-4">
                 <Input
-                  placeholder="e.g. Improve balance"
+                  placeholder="e.g. Mediterranean"
                   value={customInput}
                   onChange={(e) => setCustomInput(e.target.value)}
                 />

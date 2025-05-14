@@ -21,7 +21,7 @@ class Target(models.Model):
     fitness_goals = ArrayField(models.CharField(max_length=50, null=True, blank=True), blank=True, default=list)
 
     # activity oriented ->  ex. cardio, flexibility, HIIT, strength, yoga, aerobics, etc.
-    preferred_focus = ArrayField(models.CharField(max_length=50, null=True, blank=True), blank=True, default=list)
+    fitness_focus = ArrayField(models.CharField(max_length=50, null=True, blank=True), blank=True, default=list)
 
     # DIET
     # diet goals

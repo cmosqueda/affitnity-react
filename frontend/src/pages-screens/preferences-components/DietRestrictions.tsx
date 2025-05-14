@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useUserPreferenceFormStore } from "@/stores/useUserPreferenceFormStore";
+
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import {
@@ -15,12 +17,34 @@ import {
 } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
 
-const initialOptions = ["Peauts", "Tree nuts", "Crustacean shellfish", "Fish", "Eggs", "Wheat", "Soybeans", "Milk"];
+const initialOptions = ["Peanuts", "Tree nuts", "Crustacean shellfish", "Fish", "Eggs", "Wheat", "Soybeans", "Milk"];
 
 export default function DietRestrictions() {
-  const [selected, setSelected] = useState<string[]>([]);
   const [options, setOptions] = useState(initialOptions);
   const [customInput, setCustomInput] = useState("");
+
+  // Zustand global state
+  const dietRestrictions = useUserPreferenceFormStore((state) => state.diet_restrictions);
+  const setDietRestrictions = useUserPreferenceFormStore((state) => state.setDietRestrictions);
+
+  // Local state for selected options
+  const [selected, setSelected] = useState<string[]>([]);
+
+  // Sync Zustand state with local component state on mount
+  useEffect(() => {
+    if (dietRestrictions.length > 0) {
+      setSelected(dietRestrictions);
+      setOptions((prev) => {
+        const all = [...new Set([...prev, ...dietRestrictions])];
+        return all;
+      });
+    }
+  }, [dietRestrictions]);
+
+  // Update Zustand state when local `selected` state changes
+  useEffect(() => {
+    setDietRestrictions(selected);
+  }, [selected, setDietRestrictions]);
 
   const toggleOption = (value: string) => {
     setSelected((prev) => (prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]));
@@ -29,8 +53,8 @@ export default function DietRestrictions() {
   const handleAddCustom = () => {
     const trimmed = customInput.trim();
     if (trimmed && !options.includes(trimmed)) {
-      setOptions([...options, trimmed]);
-      setSelected([...selected, trimmed]);
+      setOptions((prev) => [...prev, trimmed]);
+      setSelected((prev) => [...prev, trimmed]);
     }
     setCustomInput("");
   };
@@ -51,16 +75,10 @@ export default function DietRestrictions() {
           </Button>
         ))}
 
-        {/* "Others" button with drawer */}
+        {/* Custom "Others" Drawer */}
         <Drawer>
           <DrawerTrigger asChild>
-            <Button
-              variant="outline"
-              onClick={(e) => {
-                // Remove focus to prevent accessibility warning
-                e.currentTarget.blur();
-              }}
-            >
+            <Button variant="outline" onClick={(e) => e.currentTarget.blur()}>
               + Others
             </Button>
           </DrawerTrigger>
@@ -72,11 +90,7 @@ export default function DietRestrictions() {
               </DrawerHeader>
 
               <div className="p-4">
-                <Input
-                  placeholder="e.g. Improve balance"
-                  value={customInput}
-                  onChange={(e) => setCustomInput(e.target.value)}
-                />
+                <Input placeholder="e.g. Gluten" value={customInput} onChange={(e) => setCustomInput(e.target.value)} />
               </div>
 
               <DrawerFooter>

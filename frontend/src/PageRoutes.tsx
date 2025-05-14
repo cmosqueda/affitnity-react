@@ -14,6 +14,7 @@ import Register from "./auth-screens/Register";
 // import other home
 import Home from "./pages-screens/Home";
 import Preferences from "./pages-screens/Preferences";
+import Generate from "./pages-screens/Generate";
 
 export default function PageRoutes() {
   return (
@@ -28,6 +29,7 @@ export default function PageRoutes() {
 
           {/* home */}
           <Route path={"/preferences"} element={<Preferences></Preferences>}></Route>
+          <Route path={"/generate"} element={<Generate></Generate>}></Route>
 
           {/* test routes */}
           <Route path="/test-post" element={<TestAxios></TestAxios>}></Route>

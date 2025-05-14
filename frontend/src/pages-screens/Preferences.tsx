@@ -1,6 +1,9 @@
 // app/preferences/page.tsx
 "use client";
 
+import { useUserPreferenceFormStore } from "@/stores/useUserPreferenceFormStore";
+
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { pages } from "./preferences-components/pages";
 
@@ -9,19 +12,55 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 export default function Preferences() {
+  // usenavigate
+  const navigate = useNavigate();
+
   const [currentPage, setCurrentPage] = useState(0);
   const totalPages = pages.length;
+  const isLastPage = currentPage === totalPages - 1;
+
+  // ✅ Zustand values must be used inside component function
+  const gender = useUserPreferenceFormStore((state) => state.gender);
+  const birth_date = useUserPreferenceFormStore((state) => state.birth_date);
+  const experienceLevel = useUserPreferenceFormStore((state) => state.experience_level);
+  const height = useUserPreferenceFormStore((state) => state.height);
+  const weight = useUserPreferenceFormStore((state) => state.weight);
+  const bodyType = useUserPreferenceFormStore((state) => state.body_type);
 
   const nextPage = () => {
-    if (currentPage < totalPages - 1) setCurrentPage(currentPage + 1);
+    if (!isLastPage) {
+      setCurrentPage(currentPage + 1);
+    } else {
+      handleFinish();
+    }
   };
 
   const prevPage = () => {
     if (currentPage > 0) setCurrentPage(currentPage - 1);
   };
 
+  const handleFinish = () => {
+    try {
+      if (!gender || !birth_date || !experienceLevel || !height || !weight || !bodyType) {
+        alert("Please fill in the necessary details.");
+        return;
+      }
+
+      // ✅ Placeholder for submission logic or redirect
+      console.log("All preferences complete. Submitting or redirecting...");
+      navigate("/generate");
+      // Example: simulate submission
+      // submitPreferences({ gender, birth_date, ... });
+    } catch (error) {
+      console.error("An error occurred during submission:", error);
+      alert("Something went wrong while submitting your preferences. Please try again.");
+    }
+  };
+
   const progressValue = ((currentPage + 1) / totalPages) * 100;
-  const { title, content } = pages[currentPage];
+  const current = pages[currentPage]; // ✅ Safe access
+  const title = current?.title || "Untitled";
+  const content = current?.content || <p>Error loading page content.</p>;
 
   return (
     <div className="font-dmsans flex flex-col grow max-w-md mx-auto mt-10 mb-5 space-y-4">
@@ -34,9 +73,7 @@ export default function Preferences() {
             <Button onClick={prevPage} disabled={currentPage === 0}>
               Previous
             </Button>
-            <Button onClick={nextPage} disabled={currentPage === totalPages - 1}>
-              Next
-            </Button>
+            <Button onClick={nextPage}>{isLastPage ? "Finish" : "Next"}</Button>
           </div>
         </CardContent>
       </Card>

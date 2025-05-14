@@ -16,3 +16,4 @@ export const pages = [
   { title: "What is your preferred diet?", content: <PreferredDiet></PreferredDiet> },
   { title: "Do you have allergies or dietary restrictions?", content: <DietRestrictions></DietRestrictions> },
 ];
+// diri ko nag stop

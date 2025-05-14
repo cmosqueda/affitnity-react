@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useUserPreferenceFormStore } from "@/stores/useUserPreferenceFormStore";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import {
@@ -26,19 +27,40 @@ const initialOptions = [
 ];
 
 export default function FitnessGoals() {
+  // Global state
+  const fitnessGoals = useUserPreferenceFormStore((state) => state.fitness_goals);
+  const setFitnessGoals = useUserPreferenceFormStore((state) => state.setFitnessGoals);
+
+  // Local state
   const [selected, setSelected] = useState<string[]>([]);
   const [options, setOptions] = useState(initialOptions);
   const [customInput, setCustomInput] = useState("");
 
+  // Sync local state on mount
+  useEffect(() => {
+    const customGoals = fitnessGoals.filter((goal) => !initialOptions.includes(goal));
+    if (customGoals.length > 0) {
+      setOptions((prev) => [...new Set([...prev, ...customGoals])]);
+    }
+    setSelected(fitnessGoals);
+  }, [fitnessGoals]);
+
   const toggleOption = (value: string) => {
-    setSelected((prev) => (prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]));
+    const updatedSelected = selected.includes(value) ? selected.filter((v) => v !== value) : [...selected, value];
+
+    setSelected(updatedSelected);
+    setFitnessGoals(updatedSelected);
   };
 
   const handleAddCustom = () => {
     const trimmed = customInput.trim();
     if (trimmed && !options.includes(trimmed)) {
       setOptions([...options, trimmed]);
-      setSelected([...selected, trimmed]);
+    }
+    if (trimmed && !selected.includes(trimmed)) {
+      const updated = [...selected, trimmed];
+      setSelected(updated);
+      setFitnessGoals(updated);
     }
     setCustomInput("");
   };
@@ -62,20 +84,14 @@ export default function FitnessGoals() {
         {/* "Others" button with drawer */}
         <Drawer>
           <DrawerTrigger asChild>
-            <Button
-              variant="outline"
-              onClick={(e) => {
-                // Remove focus to prevent accessibility warning
-                e.currentTarget.blur();
-              }}
-            >
+            <Button variant="outline" onClick={(e) => e.currentTarget.blur()}>
               + Others
             </Button>
           </DrawerTrigger>
           <DrawerContent>
             <div className="mx-auto w-full max-w-sm">
               <DrawerHeader>
-                <DrawerTitle>Add a Custom Goal</DrawerTitle>
+                <DrawerTitle>Specify Your Fitness Goal</DrawerTitle>
                 <DrawerDescription>Enter a specific goal not listed above.</DrawerDescription>
               </DrawerHeader>
 
