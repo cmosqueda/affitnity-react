@@ -2,6 +2,7 @@ import axios from "axios";
 
 // Define the expected response shape
 export type AuthResponse = {
+  // success: boolean;
   access: string;
   refresh: string;
   user: {

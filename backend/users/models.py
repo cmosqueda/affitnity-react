@@ -15,6 +15,9 @@ class Profile(models.Model):
     ]
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES,null=True,blank=True)
 
+    # weight -> kilograms
+    # height  -> centimeter
+
     weight = models.DecimalField(max_digits=5, decimal_places=2,null=True, blank=True)
     height = models.DecimalField(max_digits=5, decimal_places=2,null=True, blank=True)
     bmi = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)

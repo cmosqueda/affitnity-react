@@ -12,9 +12,9 @@ export default function AuthScreensHeader() {
         </h1>
         {/* Button container */}
         <div className="flex items-center gap-5 font-dmsans text-sm md:text-[15px]">
-          <Link to="/">Login</Link>
-          <Link to="/" className="text-snow-white bg-moss-black px-3 py-2 rounded-lg hover:bg-gray-800">
-            Create an account
+          <Link to="">About Affitnity</Link>
+          <Link to="" className="text-snow-white bg-moss-black px-3 py-2 rounded-lg hover:bg-gray-800">
+            Contact Us
           </Link>
         </div>
       </div>

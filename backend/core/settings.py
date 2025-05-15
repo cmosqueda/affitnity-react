@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'targets',
     'exercises',
     'plans',
+    
 ]
 
 # Allow vite react origin

@@ -13,7 +13,9 @@ export default function Welcome() {
   return (
     <>
       <div className="space-y-4">
-        <Label>Hello, {user?.first_name || "Guest"}. Let's get started for your fitness and diet plan.</Label>
+        <Label className="text-2xl text-center">
+          Hello, {user?.first_name || "Guest"}. Let's get started for your fitness and diet plan.
+        </Label>
       </div>
     </>
   );

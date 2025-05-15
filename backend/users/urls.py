@@ -1,6 +1,6 @@
 from django.urls import path
 from rest_framework.routers import DefaultRouter
-from .views import test_get_request, test_post_request, register_user, login_user, update_profile, logout_user, TestPostView, RegisterUserView, CustomLoginView, UpdateProfileView, validate_token
+from .views import TestPostView, RegisterUserView, CustomLoginView, UpdateProfileView, GetProfileView, validate_token
 from rest_framework_simplejwt.views import TokenRefreshView
 
 # OLD URL PATTERNS
@@ -16,7 +16,7 @@ from rest_framework_simplejwt.views import TokenRefreshView
 
 # NEW URL PATTERNS
 urlpatterns = [
-    path('test-get/', test_get_request),
+    # path('test-get/', test_get_request),
     path('test-post/', TestPostView.as_view()),
 
     # Auth routes
@@ -28,8 +28,9 @@ urlpatterns = [
 
 
     path('update-profile/', UpdateProfileView.as_view(), name='update_profile'),
+    path('get-profile/', GetProfileView.as_view(), name='get_profile'),
     path('validate-token/', validate_token, name='validate_token'),
 
     # Optional logout if using Django session logout
-    path('logout/', logout_user, name='logout'),  # Can also remove this if going full JWT
+    # path('logout/', logout_user, name='logout'),  # Can also remove this if going full JWT
 ]

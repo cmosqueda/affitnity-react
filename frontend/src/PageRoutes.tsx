@@ -10,6 +10,7 @@ import TestGetExercises from "./test-screens/TestGetExercises";
 // import Login2nd from "./auth/Login2nd";
 import Login from "./auth-screens/Login";
 import Register from "./auth-screens/Register";
+import Confirmation from "./auth-screens/Confirmation";
 
 // import other home
 import Home from "./pages-screens/Home";
@@ -26,6 +27,7 @@ export default function PageRoutes() {
           <Route path="/login-v2" element={<Login></Login>}></Route>
           <Route path="/register" element={<RegisterDummy></RegisterDummy>}></Route>
           <Route path="/register-v2" element={<Register></Register>}></Route>
+          <Route path="/confirmation" element={<Confirmation></Confirmation>}></Route>
 
           {/* home */}
           <Route path={"/preferences"} element={<Preferences></Preferences>}></Route>

@@ -2,6 +2,7 @@
 "use client";
 
 import { useUserPreferenceFormStore } from "@/stores/useUserPreferenceFormStore";
+import { saveProfile, saveTarget } from "@/api/profileSetup";
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -10,6 +11,7 @@ import { pages } from "./preferences-components/pages";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { toast } from "sonner";
 
 export default function Preferences() {
   // usenavigate
@@ -19,7 +21,7 @@ export default function Preferences() {
   const totalPages = pages.length;
   const isLastPage = currentPage === totalPages - 1;
 
-  // ✅ Zustand values must be used inside component function
+  // Zustand values must be used inside component function
   const gender = useUserPreferenceFormStore((state) => state.gender);
   const birth_date = useUserPreferenceFormStore((state) => state.birth_date);
   const experienceLevel = useUserPreferenceFormStore((state) => state.experience_level);
@@ -39,26 +41,61 @@ export default function Preferences() {
     if (currentPage > 0) setCurrentPage(currentPage - 1);
   };
 
-  const handleFinish = () => {
+  const handleFinish = async () => {
     try {
-      if (!gender || !birth_date || !experienceLevel || !height || !weight || !bodyType) {
-        alert("Please fill in the necessary details.");
+      const {
+        gender,
+        birth_date,
+        experience_level,
+        height,
+        weight,
+        body_type,
+        fitness_goals,
+        fitness_focus,
+        preferred_diet,
+        diet_restrictions,
+      } = useUserPreferenceFormStore.getState();
+
+      if (!gender || !birth_date || !experience_level || !height || !weight || !body_type) {
+        toast("Oops! You're missing details", {
+          description: "Please fill in all the required fields.",
+          action: {
+            label: "Go back",
+            onClick: () => setCurrentPage(0),
+          },
+        });
         return;
       }
 
-      // ✅ Placeholder for submission logic or redirect
-      console.log("All preferences complete. Submitting or redirecting...");
+      // First, create the Profile
+      await saveProfile({
+        gender,
+        birth_date,
+        weight,
+        height,
+        body_type,
+      });
+
+      // Then, create the Target (profile will be resolved via auth)
+      await saveTarget({
+        experience_level,
+        fitness_goals,
+        fitness_focus,
+        preferred_diet,
+        diet_restrictions,
+      });
+
       navigate("/generate");
-      // Example: simulate submission
-      // submitPreferences({ gender, birth_date, ... });
     } catch (error) {
-      console.error("An error occurred during submission:", error);
-      alert("Something went wrong while submitting your preferences. Please try again.");
+      console.error(error);
+      toast("Something went wrong", {
+        description: "Could not save your preferences. Please try again.",
+      });
     }
   };
 
   const progressValue = ((currentPage + 1) / totalPages) * 100;
-  const current = pages[currentPage]; // ✅ Safe access
+  const current = pages[currentPage]; //  Safe access
   const title = current?.title || "Untitled";
   const content = current?.content || <p>Error loading page content.</p>;
 

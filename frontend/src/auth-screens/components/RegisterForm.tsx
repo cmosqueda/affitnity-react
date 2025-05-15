@@ -51,9 +51,10 @@ export default function RegisterForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       await register(values);
-      navigate("/");
+      navigate("/confirmation?status=success");
     } catch (error: any) {
       console.error("Register failed:", error?.message);
+      navigate("/confirmation?status=error");
     }
   }
 

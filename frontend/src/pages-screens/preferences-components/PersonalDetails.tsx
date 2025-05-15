@@ -27,9 +27,9 @@ export default function PersonalDetails() {
             <SelectValue placeholder="Select an option" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="Male">Male</SelectItem>
-            <SelectItem value="Female">Female</SelectItem>
-            <SelectItem value="Other">Other</SelectItem>
+            <SelectItem value="male">Male</SelectItem>
+            <SelectItem value="female">Female</SelectItem>
+            <SelectItem value="other">Other</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -43,7 +43,7 @@ export default function PersonalDetails() {
             type="date"
             value={birthDate ? new Date(birthDate).toISOString().split("T")[0] : ""}
             onChange={(e) => setBirthDate(new Date(e.target.value))}
-            className="w-full pl-10 pr-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full pl-10 pr-3 py-2 border rounded-md focus:outline-none focus:ring-2 "
           />
         </div>
       </div>
@@ -58,9 +58,9 @@ export default function PersonalDetails() {
             <SelectValue placeholder="Select an option" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="Beginner">Beginner</SelectItem>
-            <SelectItem value="Intermediate">Intermediate</SelectItem>
-            <SelectItem value="Expert">Expert</SelectItem>
+            <SelectItem value="beginner">Beginner</SelectItem>
+            <SelectItem value="intermediate">Intermediate</SelectItem>
+            <SelectItem value="expert">Expert</SelectItem>
           </SelectContent>
         </Select>
       </div>

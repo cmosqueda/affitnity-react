@@ -59,9 +59,9 @@ export default function BodyAttributes() {
             </SelectTrigger>
 
             <SelectContent>
-              <SelectItem value="Ectomorph">Ectomorph</SelectItem>
-              <SelectItem value="Mesomorph">Mesomorph</SelectItem>
-              <SelectItem value="Endomorph">Endomorph</SelectItem>
+              <SelectItem value="ectomorph">Ectomorph</SelectItem>
+              <SelectItem value="mesomorph">Mesomorph</SelectItem>
+              <SelectItem value="endomorph">Endomorph</SelectItem>
             </SelectContent>
           </Select>
         </div>
