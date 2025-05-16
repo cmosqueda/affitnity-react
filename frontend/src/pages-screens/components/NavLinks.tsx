@@ -40,7 +40,7 @@ export default function NavLinks() {
         </NavLink>
 
         <NavLink
-          to="/dummyplan"
+          to="/get-exercises"
           className={({ isActive }: { isActive: boolean }) =>
             `rounded-md font-medium text-[16px] transition-colors duration-300 ${
               isActive ? "text-blue-600" : "text-moss-black hover:text-blue-600"

@@ -82,7 +82,7 @@ export default function Nav() {
               <Link to="/" className="text-green-400">
                 Meal Plan
               </Link>
-              <Link to="/" className="text-blue-600">
+              <Link to="/get-exercises" className="text-blue-600">
                 Workout Gallery
               </Link>
               <Link to="/">Services</Link>

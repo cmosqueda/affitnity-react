@@ -22,12 +22,12 @@ export default function Preferences() {
   const isLastPage = currentPage === totalPages - 1;
 
   // Zustand values must be used inside component function
-  const gender = useUserPreferenceFormStore((state) => state.gender);
-  const birth_date = useUserPreferenceFormStore((state) => state.birth_date);
-  const experienceLevel = useUserPreferenceFormStore((state) => state.experience_level);
-  const height = useUserPreferenceFormStore((state) => state.height);
-  const weight = useUserPreferenceFormStore((state) => state.weight);
-  const bodyType = useUserPreferenceFormStore((state) => state.body_type);
+  // const gender = useUserPreferenceFormStore((state) => state.gender);
+  // const birth_date = useUserPreferenceFormStore((state) => state.birth_date);
+  // const experienceLevel = useUserPreferenceFormStore((state) => state.experience_level);
+  // const height = useUserPreferenceFormStore((state) => state.height);
+  // const weight = useUserPreferenceFormStore((state) => state.weight);
+  // const bodyType = useUserPreferenceFormStore((state) => state.body_type);
 
   const nextPage = () => {
     if (!isLastPage) {

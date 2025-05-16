@@ -27,3 +27,9 @@ db.sqlite3
 *.lock
 .idea/
 .vscode/
+
+
+# secret
+dietDummy.json
+exerciseDummy.json
+geminiApi.txt

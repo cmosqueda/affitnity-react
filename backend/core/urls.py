@@ -28,5 +28,8 @@ urlpatterns = [
     path('targets/', include('targets.urls')),
 
     # plans directory
-    path('plans/', include('plans.urls'))
+    path('plans/', include('plans.urls')),
+
+    # exercises directory
+    path('exercises/', include('exercises.urls'))
 ]

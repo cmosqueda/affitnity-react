@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginDummy from "./auth-screens/LoginDummy";
 import RegisterDummy from "./auth-screens/RegisterDummy";
 import TestAxios from "./test-screens/TestAxios";
-import TestGetExercises from "./test-screens/TestGetExercises";
+import TestGetExercises from "./pages-screens/TestGetExercises";
 // import Login2nd from "./auth/Login2nd";
 import Login from "./auth-screens/Login";
 import Register from "./auth-screens/Register";
@@ -16,6 +16,11 @@ import Confirmation from "./auth-screens/Confirmation";
 import Home from "./pages-screens/Home";
 import Preferences from "./pages-screens/Preferences";
 import Generate from "./pages-screens/Generate";
+import DietPlan from "./pages-screens/DietPlan";
+import ExercisePlan from "./pages-screens/ExercisePlan";
+import MyPlan from "./pages-screens/MyPlan";
+
+// import PostLoginRedirect from "./auth-screens/PostLoginRedirect";
 
 export default function PageRoutes() {
   return (
@@ -32,10 +37,12 @@ export default function PageRoutes() {
           {/* home */}
           <Route path={"/preferences"} element={<Preferences></Preferences>}></Route>
           <Route path={"/generate"} element={<Generate></Generate>}></Route>
-
+          <Route path="/get-exercises" element={<TestGetExercises></TestGetExercises>}></Route>
+          <Route path="/my-plan" element={<MyPlan></MyPlan>}></Route>
+          <Route path="/diet-plan" element={<DietPlan></DietPlan>}></Route>
+          <Route path="/exercise-plan" element={<ExercisePlan></ExercisePlan>}></Route>
           {/* test routes */}
           <Route path="/test-post" element={<TestAxios></TestAxios>}></Route>
-          <Route path="/test-get-exercises" element={<TestGetExercises></TestGetExercises>}></Route>
         </Routes>
       </BrowserRouter>
     </>

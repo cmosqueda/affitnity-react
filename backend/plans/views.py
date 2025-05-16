@@ -6,6 +6,10 @@ from .models import ExercisePlan, DietPlan
 from .serializers import ExercisePlanSerializer, DietPlanSerializer
 from targets.models import Target
 
+import json
+
+from ai.prompt_builders import build_diet_prompt, build_exercise_prompt
+
 # Create your views here.
 
 class BasePlanView(APIView):
@@ -29,6 +33,28 @@ class BasePlanView(APIView):
         plans = self.model.objects.filter(target__in=targets)
         serializer = self.serializer_class(plans, many=True)
         return Response(serializer.data)
+    
+    # ai generation
+    def generate_ai_plan(self, request):
+        try:
+            target = Target.objects.get(profile__user=request.user)
+        except Target.DoesNotExist:
+            return Response({"error": "Target not found"}, status=404)
+
+        if not self.prompt_builder:
+            return Response({"error": "No prompt builder provided."}, status=500)
+
+        prompt = self.prompt_builder(target)
+        ai_response = generate_plan(prompt)
+
+        try:
+            plan_json = json.loads(ai_response)
+        except json.JSONDecodeError:
+            return Response({"error": "Invalid JSON response from Gemini."}, status=500)
+
+        plan = self.model.objects.create(target=target, plan_data=plan_json)
+        serializer = self.serializer_class(plan)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def put(self, request, pk):
         try:
@@ -67,10 +93,11 @@ class BasePlanView(APIView):
 class ExercisePlanView(BasePlanView):
     model = ExercisePlan
     serializer_class = ExercisePlanSerializer
+    prompt_builder = build_exercise_prompt
 
 # diet plan view
 class DietPlanView(BasePlanView):
     model = DietPlan
     serializer_class = DietPlanSerializer
-    
+    prompt_builder = build_diet_prompt
 # basilan ko ni

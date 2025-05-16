@@ -16,16 +16,7 @@ import {
 } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
 
-const initialOptions = [
-  "Weight Loss",
-  "Muscle Gain",
-  "Maintenance",
-  "Improved Health and Wellness",
-  "Keto",
-  "Vegan/Vegetarian",
-  "Kosher",
-  "Halal",
-];
+const initialOptions = ["Mediterranean", "Paleo", "Keto", "Vegan/Vegetarian", "Kosher", "Halal"];
 
 export default function PreferredDiet() {
   const preferredDiet = useUserPreferenceFormStore((state) => state.preferred_diet);
