@@ -20,6 +20,7 @@ import DietPlan from "./pages-screens/DietPlan";
 import ExercisePlan from "./pages-screens/ExercisePlan";
 import MyPlan from "./pages-screens/MyPlan";
 import UserPlan from "./pages-screens/userPlan";
+import ProfilePage from "./pages-screens/ProfilePage";
 
 // import PostLoginRedirect from "./auth-screens/PostLoginRedirect";
 
@@ -42,6 +43,8 @@ export default function PageRoutes() {
           <Route path="/my-plan" element={<MyPlan></MyPlan>}></Route>
           <Route path="/diet-plan" element={<DietPlan></DietPlan>}></Route>
           <Route path="/exercise-plan" element={<ExercisePlan></ExercisePlan>}></Route>
+          <Route path="/profile" element={<ProfilePage></ProfilePage>}></Route>
+
           {/* test routes */}
           <Route path="/test-post" element={<TestAxios></TestAxios>}></Route>
           <Route path="/user-plan" element={<UserPlan></UserPlan>}></Route>

@@ -4,7 +4,38 @@ import { Separator } from "@/components/ui/separator";
 // pic
 import MorningWorkout from "../assets/image/morning_workout.png";
 
+import { generateDietPlan, generateExercisePlan } from "@/api/generation";
+
 export default function Generate() {
+  const handleGenerateExercise = async () => {
+    console.log("Starting exercise plan generation...");
+
+    try {
+      const data = await generateExercisePlan();
+      console.log("Exercise Plan successfully generated:", data);
+      // Here you could store in state, navigate, or display data
+    } catch (err) {
+      console.error("❌ Error generating exercise plan:", err);
+      if (err instanceof Error) {
+        console.error("Error message:", err.message);
+      }
+    }
+  };
+
+  const handleGenerateDiet = async () => {
+    console.log("Starting diet plan generation...");
+
+    try {
+      const data = await generateDietPlan();
+      console.log("Diet Plan successfully generated:", data);
+    } catch (err) {
+      console.error("❌ Error generating diet plan:", err);
+      if (err instanceof Error) {
+        console.error("Error message:", err.message);
+      }
+    }
+  };
+
   return (
     <>
       {/* logo */}
@@ -30,12 +61,18 @@ export default function Generate() {
           {/* Buttons */}
           <div className="flex flex-col space-y-2 font-dmsans">
             {/* exercise */}
-            <Button className=" bg-brand text-snow-white p-2 hover:bg-amber-700 hover:text-snow-white">
+            <Button
+              onClick={handleGenerateExercise}
+              className=" bg-brand text-snow-white p-2 hover:bg-amber-700 hover:text-snow-white"
+            >
               Exercise Plan
             </Button>
 
             {/* diet */}
-            <Button className="  bg-emerald text-snow-white p-2 hover:bg-green-600 hover:text-snow-white">
+            <Button
+              onClick={handleGenerateDiet}
+              className="  bg-emerald text-snow-white p-2 hover:bg-green-600 hover:text-snow-white"
+            >
               Diet Plan
             </Button>
 

@@ -2,11 +2,8 @@ from django.urls import path
 from .views import ExercisePlanView, DietPlanView
 
 urlpatterns = [
-    # Exercise Plan endpoints
-    path('exercise-plan/', ExercisePlanView.as_view(), name='user-exercise-plan'),
-    path('exercise-plan/<int:pk>/', ExercisePlanView.as_view(), name='user-exercise-plan-detail'),
-
-    # Diet Plan endpoints
-    path('diet-plan/', DietPlanView.as_view(), name='user-diet-plan'),
-    path('diet-plan/<int:pk>/', DietPlanView.as_view(), name='user-diet-plan-detail'),
+    path("exercise/", ExercisePlanView.as_view()),
+    path("exercise/generate/", ExercisePlanView.as_view(generate_ai=True)),
+    path("diet/", DietPlanView.as_view()),
+    path("diet/generate/", DietPlanView.as_view(generate_ai=True)),
 ]

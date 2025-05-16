@@ -130,7 +130,26 @@ const ExerciseDayCard = ({ day, focus, exercises }: ExerciseDayCardProps) => (
 );
 
 export default function ExercisePlan() {
+  // Replace this with actual fetching/parsing logic from backend/localStorage/etc.
   const exerciseData = JSON.parse(exerciseDataString);
+
+  // Check if there's no data or empty daily plan
+  const hasPlan =
+    exerciseData &&
+    exerciseData.daily_plan &&
+    Array.isArray(exerciseData.daily_plan) &&
+    exerciseData.daily_plan.length > 0;
+
+  if (!hasPlan) {
+    return (
+      <div className="max-w-3xl mx-auto p-6 font-sans text-gray-900 text-center">
+        <h1 className="text-3xl font-bold mb-4 text-indigo-700">You have no exercise plan yet</h1>
+        <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg shadow-md transition duration-300">
+          Generate Exercise Plan
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-5xl mx-auto p-6 font-sans text-gray-900">
@@ -167,7 +186,7 @@ export default function ExercisePlan() {
 
       <section className="mb-10">
         <h2 className="text-2xl font-semibold mb-6">Daily Exercise Plan</h2>
-        <div className=" flex flex-wrap gap-4 justify-center">
+        <div className="flex flex-wrap gap-4 justify-center">
           {exerciseData.daily_plan.map((dayPlan: any) => (
             <ExerciseDayCard key={dayPlan.day} day={dayPlan.day} focus={dayPlan.focus} exercises={dayPlan.exercises} />
           ))}

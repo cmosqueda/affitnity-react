@@ -18,6 +18,7 @@ import { Separator } from "@/components/ui/separator";
 import { useAuth } from "@/AuthContext";
 import PostLoginRedirect from "../PostLoginRedirect";
 import { useUserStore } from "@/stores/useUserProfileStore";
+import { useNavigate } from "react-router-dom";
 
 // zod schema
 const formSchema = z.object({
@@ -29,10 +30,11 @@ const formSchema = z.object({
 });
 
 export default function LoginForm() {
+  const navigate = useNavigate();
   const { login } = useAuth();
   const { setToken } = useUserStore.getState();
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // ✅ track login state
+  // const [isLoggedIn, setIsLoggedIn] = useState(false); // ✅ track login state
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -49,7 +51,8 @@ export default function LoginForm() {
 
       if (token) {
         setToken(token);
-        setIsLoggedIn(true);
+        navigate("/");
+        // setIsLoggedIn(true);
       } else {
         console.error("Login succeeded, but no token found in localStorage.");
       }
@@ -59,7 +62,7 @@ export default function LoginForm() {
   }
 
   // ✅ Redirect after successful login
-  if (isLoggedIn) return <PostLoginRedirect />;
+  // if (isLoggedIn) return <PostLoginRedirect />;
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 mb-10">

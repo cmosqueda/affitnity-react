@@ -1,7 +1,10 @@
 //react modules
 import { Link } from "react-router-dom";
-import SettingsProfile from "../components/SettingsProfile";
-import Footer from "../pages/Footer";
+import SettingsProfile from "./components/SettingsProfile";
+import Footer from "@/custom-components/Footer";
+import { useAuth } from "@/AuthContext";
+import { useUserStore } from "@/stores/useUserProfileStore";
+import Nav from "./components/Nav";
 
 //heroicons
 import {
@@ -14,16 +17,18 @@ import {
 } from "@heroicons/react/24/outline";
 
 export default function ProfilePage() {
+  const { user } = useAuth();
+  const { profile } = useUserStore();
+
   return (
     <>
+      <Nav></Nav>
       <div className="p-5 sm:h-screen">
         {/* cover container */}
         <div className="bg-orange-100 w-full h-30 rounded-lg relative sm:h-50">
           {/* profile icon */}
           <div className="flex absolute -bottom-15 left-4 justify-center items-center bg-brand rounded-full w-30 h-30 sm:left-5 md:left-7">
-            <h1 className="font-aeonik text-4xl font-bold text-orange-950">
-              PN
-            </h1>
+            <h1 className="font-aeonik text-4xl font-bold text-orange-950">PN</h1>
           </div>
         </div>
 
@@ -39,22 +44,20 @@ export default function ProfilePage() {
         <div className="sm:px-5 md:px-8">
           {/* name and email container */}
           <div className="mb-5">
-            <h1 className="mb-1 font-semibold text-2xl">Dummy Name Here</h1>
-            <p className="font-dmsans text-sm">@usernamehere</p>
+            <h1 className="mb-1 font-semibold text-2xl">{user?.first_name + " " + user?.last_name || "Guest"}</h1>
+            <p className="font-dmsans text-sm">@{user?.username || "guestuser"}</p>
           </div>
 
           {/* about me */}
           <div className="grid grid-cols-1 space-y-6 sm:grid-cols-2 sm:space-y-0 sm:gap-4 md:grid-cols-3">
             {/* about me choices */}
             <div className="grid gap-3">
-              <h1 className="text-moss-black font-medium text-[15px]">
-                About Me
-              </h1>
+              <h1 className="text-moss-black font-medium text-[15px]">About Me</h1>
 
               <SettingsProfile
                 icon={<CalendarIcon className="w-5 h-5" />}
                 text={"Birthdate"}
-                subText={"December 29, 2003"}
+                subText={profile?.birth_date?.toString}
                 containerClass="hover:bg-gray-200 bg-gray-100 p-2 rounded-xl border border-moss-black h-11"
                 iconClass="text-moss-black"
                 subTextClass="text-xs text-gray-600"
@@ -64,7 +67,7 @@ export default function ProfilePage() {
               <SettingsProfile
                 icon={<UserIcon className="w-5 h-5" />}
                 text={"Gender"}
-                subText={"Male"}
+                subText={profile?.gender?.toString}
                 containerClass="hover:bg-gray-200 bg-gray-100 p-2 rounded-xl border border-moss-black h-11"
                 iconClass="text-moss-black"
                 subTextClass="text-xs text-gray-600"
@@ -74,14 +77,12 @@ export default function ProfilePage() {
 
             {/* health choices */}
             <div className="grid gap-3">
-              <h1 className="text-moss-black font-medium text-[15px]">
-                Health
-              </h1>
+              <h1 className="text-moss-black font-medium text-[15px]">Health</h1>
 
               <SettingsProfile
                 icon={<ScaleIcon className="w-5 h-5" />}
-                text={"Weight"}
-                subText={"50kg"}
+                text={"Weight - kg"}
+                subText={profile?.weight?.toString}
                 containerClass="hover:bg-gray-200 bg-gray-100 p-2 rounded-xl border border-moss-black h-11"
                 iconClass="text-moss-black"
                 subTextClass="text-xs text-gray-600"
@@ -90,8 +91,8 @@ export default function ProfilePage() {
 
               <SettingsProfile
                 icon={<ChartBarIcon className="w-5 h-5" />}
-                text={"Height"}
-                subText={"6'0"}
+                text={"Height - cm"}
+                subText={profile?.height?.toString}
                 containerClass="hover:bg-gray-200 bg-gray-100 p-2 rounded-xl border border-moss-black h-11"
                 iconClass="text-moss-black"
                 subTextClass="text-xs text-gray-600"
@@ -101,9 +102,7 @@ export default function ProfilePage() {
 
             {/* general choices */}
             <div className="grid gap-3">
-              <h1 className="text-moss-black font-medium text-[15px]">
-                General
-              </h1>
+              <h1 className="text-moss-black font-medium text-[15px]">General</h1>
 
               <SettingsProfile
                 icon={<QuestionMarkCircleIcon className="w-5 h-5" />}

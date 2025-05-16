@@ -56,3 +56,13 @@ export const saveTarget = async (targetData: {
   const response = await axiosInstance.post("/targets/target/", targetData);
   return response.data;
 };
+
+export const checkProfileAndTargetCompletion = async () => {
+  try {
+    const response = await axiosInstance.get("/users/check-profile-target/");
+    return response.data; // Expecting a response like { is_complete: true, missing_fields: [...] }
+  } catch (error: any) {
+    console.error("Check profile/target error:", error.response?.data || error.message);
+    throw error;
+  }
+};

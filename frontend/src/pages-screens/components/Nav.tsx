@@ -54,7 +54,7 @@ export default function Nav() {
         {/* profile desktop view */}
         <div className="group hidden md:flex md:gap-3 md:items-center md:justify-center md:border md:border-moss-black md:p-2 md:rounded-xl md:hover:bg-moss-black">
           <div className="w-8 h-8 rounded-4xl bg-gray-600"></div>
-          <Link to="/" className="font-aeonik font-normal text-md group-hover:text-snow-white">
+          <Link to="/profile" className="font-aeonik font-normal text-md group-hover:text-snow-white">
             {user?.username || "Guest"}
           </Link>
         </div>
