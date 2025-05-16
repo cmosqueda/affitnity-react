@@ -19,6 +19,7 @@ import Generate from "./pages-screens/Generate";
 import DietPlan from "./pages-screens/DietPlan";
 import ExercisePlan from "./pages-screens/ExercisePlan";
 import MyPlan from "./pages-screens/MyPlan";
+import UserPlan from "./pages-screens/userPlan";
 
 // import PostLoginRedirect from "./auth-screens/PostLoginRedirect";
 
@@ -43,6 +44,7 @@ export default function PageRoutes() {
           <Route path="/exercise-plan" element={<ExercisePlan></ExercisePlan>}></Route>
           {/* test routes */}
           <Route path="/test-post" element={<TestAxios></TestAxios>}></Route>
+          <Route path="/user-plan" element={<UserPlan></UserPlan>}></Route>
         </Routes>
       </BrowserRouter>
     </>

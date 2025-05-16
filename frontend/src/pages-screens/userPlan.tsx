@@ -27,7 +27,11 @@ function UserPlan() {
         </div>
         <div className="flex items-center space-x-2 border border-black rounded-[12px] px-3 py-1 bg-white">
           {/* u can change the profile picture by change number and u also change into womem */}
-          <img src="https://randomuser.me/api/portraits/men/78.jpg" alt="User Avatar" className="w-8 h-8 rounded-full object-cover" />
+          <img
+            src="https://randomuser.me/api/portraits/men/78.jpg"
+            alt="User Avatar"
+            className="w-8 h-8 rounded-full object-cover"
+          />
           <span className="text-sm font-medium text-black">Mike Philip</span>
         </div>
       </nav>
@@ -90,36 +94,60 @@ function UserPlan() {
         <div className="flex flex-wrap gap-3 justify-start">
           {/* Card 1 */}
           <div className="w-80 rounded-xl overflow-hidden shadow-lg bg-white">
-            <img className="w-full h-120 object-cover" src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1" alt="Burpees Exercise" />
+            <img
+              className="w-full h-120 object-cover"
+              src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1"
+              alt="Burpees Exercise"
+            />
             <div className="p-4">
               <h3 className="text-xl font-semibold text-gray-800">Burpees</h3>
               <div className="flex items-center gap-2 mt-2">
-                <span className="bg-yellow-500 text-white text-xs font-medium px-2 py-1 rounded-full">Strength Workout</span>
-                <span className="bg-gray-800 text-white text-xs font-medium px-2 py-1 rounded-full">16 reps • 3 sets</span>
+                <span className="bg-yellow-500 text-white text-xs font-medium px-2 py-1 rounded-full">
+                  Strength Workout
+                </span>
+                <span className="bg-gray-800 text-white text-xs font-medium px-2 py-1 rounded-full">
+                  16 reps • 3 sets
+                </span>
               </div>
             </div>
           </div>
 
           {/* Card 2 */}
           <div className="w-80 rounded-xl overflow-hidden shadow-lg bg-white">
-            <img className="w-full h-120 object-cover" src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1" alt="Burpees Exercise" />
+            <img
+              className="w-full h-120 object-cover"
+              src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1"
+              alt="Burpees Exercise"
+            />
             <div className="p-4">
               <h3 className="text-xl font-semibold text-gray-800">Burpees</h3>
               <div className="flex items-center gap-2 mt-2">
-                <span className="bg-yellow-500 text-white text-xs font-medium px-2 py-1 rounded-full">Strength Workout</span>
-                <span className="bg-gray-800 text-white text-xs font-medium px-2 py-1 rounded-full">16 reps • 3 sets</span>
+                <span className="bg-yellow-500 text-white text-xs font-medium px-2 py-1 rounded-full">
+                  Strength Workout
+                </span>
+                <span className="bg-gray-800 text-white text-xs font-medium px-2 py-1 rounded-full">
+                  16 reps • 3 sets
+                </span>
               </div>
             </div>
           </div>
 
           {/* Card 3 */}
           <div className="w-80 rounded-xl overflow-hidden shadow-lg bg-white">
-            <img className="w-full h-120 object-cover" src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1" alt="Burpees Exercise" />
+            <img
+              className="w-full h-120 object-cover"
+              src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1"
+              alt="Burpees Exercise"
+            />
             <div className="p-4">
               <h3 className="text-xl font-semibold text-gray-800">Burpees</h3>
               <div className="flex items-center gap-2 mt-2">
-                <span className="bg-yellow-500 text-white text-xs font-medium px-2 py-1 rounded-full">Strength Workout</span>
-                <span className="bg-gray-800 text-white text-xs font-medium px-2 py-1 rounded-full">16 reps • 3 sets</span>
+                <span className="bg-yellow-500 text-white text-xs font-medium px-2 py-1 rounded-full">
+                  Strength Workout
+                </span>
+                <span className="bg-gray-800 text-white text-xs font-medium px-2 py-1 rounded-full">
+                  16 reps • 3 sets
+                </span>
               </div>
             </div>
           </div>
@@ -151,18 +179,30 @@ function UserPlan() {
 
                 <div className="flex items-center gap-3 flex-wrap">
                   <span className="bg-red-200 text-red-700 px-3 py-1 rounded-full text-xs font-semibold">123kcal</span>
-                  <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold">Carbs: 123g</span>
-                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold">Protein: 123g</span>
-                  <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-semibold">Fat: 12g</span>
+                  <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold">
+                    Carbs: 123g
+                  </span>
+                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold">
+                    Protein: 123g
+                  </span>
+                  <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-semibold">
+                    Fat: 12g
+                  </span>
                 </div>
 
                 <div className="mt-3">
-                  <span className="bg-green-700 text-white px-3 py-1 rounded-full text-xs font-semibold">Breakfast</span>
+                  <span className="bg-green-700 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                    Breakfast
+                  </span>
                 </div>
               </div>
 
               {/* Right Image */}
-              <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2" alt="Meal" className="w-48 h-28 rounded-lg object-cover ml-6" />
+              <img
+                src="https://images.unsplash.com/photo-1551218808-94e220e084d2"
+                alt="Meal"
+                className="w-48 h-28 rounded-lg object-cover ml-6"
+              />
             </div>
           </div>
 
@@ -187,9 +227,15 @@ function UserPlan() {
 
                 <div className="flex items-center gap-3 flex-wrap">
                   <span className="bg-red-200 text-red-700 px-3 py-1 rounded-full text-xs font-semibold">123kcal</span>
-                  <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold">Carbs: 123g</span>
-                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold">Protein: 123g</span>
-                  <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-semibold">Fat: 12g</span>
+                  <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold">
+                    Carbs: 123g
+                  </span>
+                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold">
+                    Protein: 123g
+                  </span>
+                  <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-semibold">
+                    Fat: 12g
+                  </span>
                 </div>
 
                 <div className="mt-3">
@@ -198,7 +244,11 @@ function UserPlan() {
               </div>
 
               {/* Right Image */}
-              <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2" alt="Meal" className="w-48 h-28 rounded-lg object-cover ml-6" />
+              <img
+                src="https://images.unsplash.com/photo-1551218808-94e220e084d2"
+                alt="Meal"
+                className="w-48 h-28 rounded-lg object-cover ml-6"
+              />
             </div>
           </div>
 
@@ -223,9 +273,15 @@ function UserPlan() {
 
                 <div className="flex items-center gap-3 flex-wrap">
                   <span className="bg-red-200 text-red-700 px-3 py-1 rounded-full text-xs font-semibold">123kcal</span>
-                  <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold">Carbs: 123g</span>
-                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold">Protein: 123g</span>
-                  <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-semibold">Fat: 12g</span>
+                  <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold">
+                    Carbs: 123g
+                  </span>
+                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold">
+                    Protein: 123g
+                  </span>
+                  <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-semibold">
+                    Fat: 12g
+                  </span>
                 </div>
 
                 <div className="mt-3">
@@ -234,7 +290,11 @@ function UserPlan() {
               </div>
 
               {/* Right Image */}
-              <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2" alt="Meal" className="w-48 h-28 rounded-lg object-cover ml-6" />
+              <img
+                src="https://images.unsplash.com/photo-1551218808-94e220e084d2"
+                alt="Meal"
+                className="w-48 h-28 rounded-lg object-cover ml-6"
+              />
             </div>
           </div>
         </div>
